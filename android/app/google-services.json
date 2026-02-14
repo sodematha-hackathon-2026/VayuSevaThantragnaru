@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "997013043453",
+    "project_id": "sode-matha-app",
+    "storage_bucket": "sode-matha-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997013043453:android:a00a3723879d272c28e694",
+        "android_client_info": {
+          "package_name": "com.sode.matha.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2FlHLFFLe7ivXHT0HmixTBrhPY7-zfak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
