@@ -3,31 +3,23 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useLanguage } from "../context/LanguageContext";
 import { t, translations } from "../utils/translations";
 
-export default function HistoryParamparaScreen() {
+export default function BranchesScreen() {
   const { language } = useLanguage();
-  const summary = translations[language].history.paramparaSummary;
-  const lineage = translations[language].history.paramparaLineage;
+  const branches = translations[language].branches.items;
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.header}>
-        <Text style={styles.title}>{t("history.paramparaScreenTitle", language)}</Text>
-        <Text style={styles.subtitle}>{t("history.paramparaScreenSubtitle", language)}</Text>
+        <Text style={styles.title}>{t("branches.title", language)}</Text>
+        <Text style={styles.subtitle}>{t("branches.subtitle", language)}</Text>
       </View>
 
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t("history.overviewTitle", language)}</Text>
-        <Text style={styles.bodyText}>{summary.join(" ")}</Text>
-      </View>
-
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t("history.lineageTitle", language)}</Text>
-        {lineage.map((name, index) => (
-          <Text key={name} style={styles.bodyText}>
-            {index + 1}. {name}
-          </Text>
-        ))}
-      </View>
+      {branches.map((item) => (
+        <View key={item.title} style={styles.card}>
+          <Text style={styles.sectionTitle}>{item.title}</Text>
+          <Text style={styles.bodyText}>{item.detail}</Text>
+        </View>
+      ))}
     </ScrollView>
   );
 }
@@ -48,5 +40,5 @@ const styles = StyleSheet.create({
     borderColor: "#E2C3A4",
   },
   sectionTitle: { fontSize: 14, fontWeight: "700", color: "#3B2416", marginBottom: 6 },
-  bodyText: { fontSize: 13, color: "#7A5A45", lineHeight: 18, marginTop: 4 },
+  bodyText: { fontSize: 13, color: "#7A5A45", lineHeight: 18 },
 });

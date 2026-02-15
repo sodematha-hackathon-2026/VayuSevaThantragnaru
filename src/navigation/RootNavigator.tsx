@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import firestore from "@react-native-firebase/firestore";
 import { getAuth, onAuthStateChanged, FirebaseAuthTypes } from "@react-native-firebase/auth";
 import AuthStack from "./AuthStack";
 import AppDrawer from "./AppDrawer";
+import { HOME_CACHE_KEYS, serializeTimestamp } from "../utils/cache";
 
 const PROFILE_STORAGE_KEY = "devotee_profile";
 
@@ -27,6 +29,51 @@ export default function RootNavigator() {
     });
     return unsub;
   }, []);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const preloadHomeCache = async () => {
+      try {
+        const [newsSnap, announcementsSnap] = await Promise.all([
+          firestore().collection("news").orderBy("createdAt", "desc").limit(5).get(),
+          firestore()
+            .collection("announcements")
+            .where("isActive", "==", true)
+            .orderBy("createdAt", "desc")
+            .limit(10)
+            .get(),
+        ]);
+
+        const newsItems = newsSnap.docs.map((doc) => {
+          const data = doc.data() as any;
+          return {
+            id: doc.id,
+            ...data,
+            createdAt: serializeTimestamp(data.createdAt),
+          };
+        });
+
+        const announcementItems = announcementsSnap.docs.map((doc) => {
+          const data = doc.data() as any;
+          return {
+            id: doc.id,
+            ...data,
+            createdAt: serializeTimestamp(data.createdAt),
+          };
+        });
+
+        await AsyncStorage.multiSet([
+          [HOME_CACHE_KEYS.news, JSON.stringify(newsItems)],
+          [HOME_CACHE_KEYS.announcements, JSON.stringify(announcementItems)],
+        ]);
+      } catch (error) {
+        console.log("Home cache preload error:", error);
+      }
+    };
+
+    preloadHomeCache();
+  }, [user]);
 
   useEffect(() => {
     let active = true;

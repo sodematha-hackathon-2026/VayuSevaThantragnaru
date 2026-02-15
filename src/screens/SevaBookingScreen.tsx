@@ -1,16 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Voice from "@react-native-voice/voice";
 import { useLanguage } from "../context/LanguageContext";
-import { t } from "../utils/translations";
+import { t, translations } from "../utils/translations";
+
+type SevaItem = {
+  id: number;
+  name: string;
+  price: number;
+};
 
 export default function SevaBookingScreen() {
   const { language } = useLanguage();
   const [searchText, setSearchText] = useState("");
   const [listening, setListening] = useState(false);
   const [voiceError, setVoiceError] = useState("");
+  const [selectedSevas, setSelectedSevas] = useState<number[]>([]);
   const canUseVoice = !!Voice && typeof (Voice as any).start === "function";
+  const sevaList = translations[language].sevaBooking.sevaList as SevaItem[];
+
+  const filteredSevas = useMemo(() => {
+    if (!searchText.trim()) return sevaList;
+    const query = searchText.trim().toLowerCase();
+    return sevaList.filter((seva) => seva.name.toLowerCase().includes(query));
+  }, [searchText, sevaList]);
+
+  const toggleSeva = (id: number) => {
+    setSelectedSevas((current) =>
+      current.includes(id) ? current.filter((item) => item !== id) : [...current, id]
+    );
+  };
 
   useEffect(() => {
     Voice.onSpeechResults = (event) => {
@@ -33,7 +53,7 @@ export default function SevaBookingScreen() {
 
     Voice.onSpeechError = (event) => {
       setListening(false);
-      setVoiceError(event.error?.message || "Voice recognition failed");
+      setVoiceError(event.error?.message || t("sevaBooking.voiceError", language));
     };
 
     return () => {
@@ -46,7 +66,7 @@ export default function SevaBookingScreen() {
     try {
       setVoiceError("");
       if (!canUseVoice) {
-        setVoiceError("Voice module is not available. Rebuild the app.");
+        setVoiceError(t("sevaBooking.voiceUnavailable", language));
         return;
       }
       await Voice.cancel();
@@ -55,7 +75,7 @@ export default function SevaBookingScreen() {
       await Voice.start(locale);
     } catch (error: any) {
       setListening(false);
-      setVoiceError(error?.message || "Unable to start voice input");
+      setVoiceError(error?.message || t("sevaBooking.voiceStartFailed", language));
     }
   };
 
@@ -72,14 +92,14 @@ export default function SevaBookingScreen() {
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.header}>
         <Text style={styles.title}>{t("tabs.sevaBooking", language)}</Text>
-        <Text style={styles.subtitle}>Seva booking requests will be enabled here.</Text>
+        <Text style={styles.subtitle}>{t("sevaBooking.subtitle", language)}</Text>
       </View>
 
       <View style={styles.searchRow}>
         <Icon name="search" size={18} color="#7A5A45" />
         <TextInput
           style={styles.searchInput}
-          placeholder="Search seva..."
+          placeholder={t("sevaBooking.searchPlaceholder", language)}
           placeholderTextColor="#9B7A62"
           value={searchText}
           onChangeText={setSearchText}
@@ -93,25 +113,46 @@ export default function SevaBookingScreen() {
         </TouchableOpacity>
       </View>
 
-      {listening ? <Text style={styles.voiceHint}>Listening…</Text> : null}
+      {listening ? <Text style={styles.voiceHint}>{t("sevaBooking.listening", language)}</Text> : null}
       {voiceError ? <Text style={styles.voiceError}>{voiceError}</Text> : null}
 
       <View style={styles.card}>
-        <Text style={styles.sectionTitle}>Current status</Text>
+        <Text style={styles.sectionTitle}>{t("sevaBooking.currentStatusTitle", language)}</Text>
         <Text style={styles.bodyText}>
-          Please contact the office to confirm seva availability and timing.
+          {t("sevaBooking.currentStatusBody", language)}
         </Text>
       </View>
 
       <View style={styles.card}>
-        <Text style={styles.sectionTitle}>What to prepare</Text>
-        <Text style={styles.bodyText}>- Seva name and preferred date</Text>
-        <Text style={styles.bodyText}>- Your contact details</Text>
-        <Text style={styles.bodyText}>- Any special instructions</Text>
+        <Text style={styles.sectionTitle}>{t("sevaBooking.selectSevaTitle", language)}</Text>
+        {filteredSevas.length === 0 ? (
+          <Text style={styles.bodyText}>{t("sevaBooking.noSevasFound", language)}</Text>
+        ) : (
+          filteredSevas.map((seva) => {
+            const isSelected = selectedSevas.includes(seva.id);
+            return (
+              <TouchableOpacity
+                key={seva.id}
+                style={[styles.sevaRow, isSelected && styles.sevaRowSelected]}
+                onPress={() => toggleSeva(seva.id)}
+                accessibilityRole="checkbox"
+                accessibilityState={{ checked: isSelected }}
+              >
+                <View style={[styles.checkbox, isSelected && styles.checkboxChecked]}>
+                  {isSelected ? <Text style={styles.checkboxTick}>✓</Text> : null}
+                </View>
+                <View style={styles.sevaDetails}>
+                  <Text style={styles.sevaName}>{seva.name}</Text>
+                  <Text style={styles.sevaPrice}>₹ {seva.price}</Text>
+                </View>
+              </TouchableOpacity>
+            );
+          })
+        )}
       </View>
 
       <TouchableOpacity style={styles.submitBtn}>
-        <Text style={styles.submitText}>Request Seva Booking</Text>
+        <Text style={styles.submitText}>{t("sevaBooking.requestButton", language)}</Text>
       </TouchableOpacity>
     </ScrollView>
   );
@@ -163,6 +204,46 @@ const styles = StyleSheet.create({
     padding: 14,
     borderWidth: 1,
     borderColor: "#E2C3A4",
+  },
+  sevaRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#E2C3A4",
+    backgroundColor: "#FFF8F0",
+    marginTop: 8,
+    gap: 10,
+  },
+  sevaRowSelected: {
+    borderColor: "#C96A2B",
+    backgroundColor: "#FCE6D2",
+  },
+  sevaDetails: {
+    flex: 1,
+  },
+  checkbox: {
+    width: 22,
+    height: 22,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: "#A56A46",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  checkboxChecked: { backgroundColor: "#C96A2B", borderColor: "#C96A2B" },
+  checkboxTick: { color: "#fff", fontWeight: "800" },
+  sevaName: {
+    fontSize: 13,
+    color: "#3B2416",
+    fontWeight: "600",
+  },
+  sevaPrice: {
+    marginTop: 4,
+    fontSize: 12,
+    color: "#7A5A45",
   },
   sectionTitle: { fontSize: 14, fontWeight: "700", color: "#3B2416", marginBottom: 6 },
   bodyText: { fontSize: 13, color: "#7A5A45", marginTop: 4 },

@@ -2,7 +2,7 @@ export const translations = {
   en: {
     login: {
       title: "Sri Sode Vadiraja Matha",
-      welcome: "Hari Sarvotthama Vayu Jeevotthama",
+      welcome: "Welcome Back",
       mobileNumber: "Mobile Number",
       enterDigits: "Enter {{digits}}-digit number",
       consent: "I have read and agree to the",
@@ -17,6 +17,7 @@ export const translations = {
       changeNumber: "Change Number",
       copyright: "© 2025 Sri Sode Vadiraja Matha",
       contactUs: "Contact Us",
+      mobileRequired: "Mobile number is required",
       confirmationRequired: "Confirmation required",
       confirmationMessage: "Please confirm that you have read and agree to the Privacy Policy and Terms & Conditions.",
       otpSent: "OTP Sent",
@@ -25,12 +26,31 @@ export const translations = {
       invalidOTP: "Invalid OTP",
       invalidOTPMessage: "Please enter the 6-digit OTP.",
       otpVerificationFailed: "OTP verification failed",
+      yourNumber: "your number",
       invalidNumber: "Invalid Number",
       invalidNumberMessage: "Enter a valid {{digits}}-digit mobile number",
       enterMobileNumber: "Enter mobile number",
       enterValidMobileNumber: "Please enter a valid mobile number first.",
       selectCountry: "Select Country",
       searchCountry: "Search country...",
+      policyPlaceholder: "TODO: Paste {{title}} content here OR render via WebView/remote URL.",
+      policyTip: "Tip: Host these documents on a site and show them inside an in-app WebView.",
+    },
+    common: {
+      languageSwitchLabel: "Switch language",
+      languageEnglish: "English",
+      languageKannada: "ಕನ್ನಡ",
+      logout: "Logout",
+      signOut: "Sign Out",
+      readMore: "Read More",
+      openContactPage: "Open Contact Page",
+      sendEmail: "Send Email",
+      openMap: "Open Map",
+      close: "Close",
+      unknownError: "Unknown error",
+      yes: "Yes",
+      no: "No",
+      next: "Next",
     },
     home: {
       title: "Sri Sode Vadiraja Matha",
@@ -53,6 +73,8 @@ export const translations = {
       signOut: "Sign out",
       vishwothamaSwamiji: "Sri Sri Vishwothama Theertha Swamiji",
       vishwavallabhaSwamiji: "Sri Sri Vishwavallabha Theertha Swamiji",
+      logoPlaceholder: "LOGO",
+      newsImagePlaceholder: "NEWS IMAGE",
     },
     tabs: {
       home: "Home",
@@ -62,6 +84,11 @@ export const translations = {
       profile: "Registration",
       eventCalendar: "Event Calendar",
       history: "History",
+      branches: "Our Branches",
+      gallery: "Gallery",
+      resources: "Resources",
+      quiz: "Quiz",
+      contactUs: "Contact Us",
     },
     profile: {
       title: "Devotee Registration",
@@ -91,6 +118,7 @@ export const translations = {
       subtitle: "Sode Matha guest rooms",
       checkIn: "Check-in Date (YYYY-MM-DD)",
       checkOut: "Check-out Date (YYYY-MM-DD)",
+      datePlaceholder: "YYYY-MM-DD",
       guests: "Number of Guests",
       request: "Submit Booking Request",
       consent: "Allow data storage for this request",
@@ -98,6 +126,15 @@ export const translations = {
       emailSubject: "Room Booking Request",
       emailBodyTitle: "Room Booking Details",
       sent: "Your request has been prepared in email.",
+      emailLabels: {
+        name: "Name",
+        mobile: "Mobile",
+        email: "Email",
+        checkIn: "Check-in",
+        checkOut: "Check-out",
+        guests: "Guests",
+        consent: "Consent",
+      },
     },
     eventCalendar: {
       title: "Event Calendar",
@@ -112,6 +149,45 @@ export const translations = {
       noEvents: "No events match your search.",
       tithi: "Tithi",
       location: "Location",
+      events: [
+        {
+          id: "1",
+          title: "Aradhana",
+          date: "2026-02-20",
+          weekday: "Friday",
+          tithi: "Magha Shuddha Navami",
+          type: "Aradhana",
+          location: "Sode",
+          description: "Admin-managed content will replace this sample.",
+        },
+        {
+          id: "2",
+          title: "Festival",
+          date: "2026-03-08",
+          weekday: "Sunday",
+          tithi: "Phalguna Shuddha Ekadashi",
+          type: "Festival",
+          location: "Udupi",
+        },
+        {
+          id: "3",
+          title: "Paryaya Event",
+          date: "2026-04-15",
+          weekday: "Wednesday",
+          tithi: "Chaitra Krishna Ashtami",
+          type: "Paryaya",
+          location: "Udupi",
+        },
+        {
+          id: "4",
+          title: "Weekly Pravachana",
+          date: "2026-02-16",
+          weekday: "Monday",
+          tithi: "Magha Krishna Dwadashi",
+          type: "Other",
+          location: "Sode",
+        },
+      ],
     },
     history: {
       title: "History & Parampara",
@@ -131,12 +207,395 @@ export const translations = {
       detailsPending: "Details will be updated by the admin.",
       bhootarajaruTitle: "Sri Bhootarajaru",
       bhootarajaruText: "A sacred protector of the Matha. Full details will be published soon.",
+      paramparaScreenTitle: "Parampara",
+      paramparaScreenSubtitle: "A concise overview of the lineage.",
+      overviewTitle: "Overview",
+      lineageTitle: "Lineage (36)",
+      paramparaSummary: [
+        "Sri Sode Vadiraja Matha follows the Jagadguru Sriman Madhwacharya lineage.",
+        "The parampara records a succession of pontiffs who preserve teachings and traditions.",
+        "Sri Vadirajatirtharu is a central figure in the lineage and heritage of the matha.",
+        "The lineage continues through distinguished pontiffs up to the present peetadhipathi.",
+      ],
+      paramparaLineage: [
+        "Sri Vishnutirtha",
+        "Sri Vyaasatirtha",
+        "Sri Vedyatirtha",
+        "Sri Vedagarbhatirtha",
+        "Sri Vareshatirtha",
+        "Sri Vamanatirtha",
+        "Sri Vasudevatirtha",
+        "Sri Vedavyasatirtha",
+        "Sri Varahatirtha",
+        "Sri Vedatmatirtha",
+        "Sri Vishwavandyatirtha - I",
+        "Sri Ratnagarbhatirtha",
+        "Sri Vedangatirtha",
+        "Sri Vidyapatitirtha",
+        "Sri Vishwavandyatirtha - II",
+        "Sri Vishwatirtha",
+        "Sri Vitthalatirtha",
+        "Sri Varadarajatirtha - I",
+        "Sri Vagishatirtha",
+        "Sri Vadirajatirtharu",
+        "Sri Vedavedyatirtha - (1530-1616)",
+        "Sri Vidyanidhitirtha",
+        "Sri Vedanidhitirtha",
+        "Sri Varadarajatirtha - II",
+        "Sri Vishwadhirajatirtha",
+        "Sri Vadivandyatirtha",
+        "Sri Vishwavandyatirtha - III",
+        "Sri Vibudhavaryatirtha",
+        "Sri Vishwanidhitirtha",
+        "Sri Vishwadhishwaratirtha",
+        "Sri Vishweshatirtha",
+        "Sri Vishwapriyatirtha (Srimadvrindavan acharya) - 1774-1865",
+        "Sri Vishwadhishatirtha",
+        "Sri Vishwendratirtha",
+        "Sri Vishwottamatirtha : (1934-2007)",
+        "Sri Vishwavallabhatirtha (The Present Pontiff)",
+      ],
+    },
+    branches: {
+      title: "Our Branches",
+      subtitle: "A concise overview of key branches and heritage centers.",
+      items: [
+        {
+          title: "Car Street, Udupi",
+          detail:
+            "Main matha complex with worship halls, administrative offices, and monthly special worships.",
+        },
+        {
+          title: "Sode, Sirsi Taluk",
+          detail:
+            "Principal heritage center with temples, sacred ponds, and the Panchavrindavana complex.",
+        },
+        {
+          title: "Panjimaru, Shirva",
+          detail:
+            "Quiet study and meditation center with traditional woodwork and a small sacred pond.",
+        },
+        {
+          title: "Udyavara, Udupi",
+          detail:
+            "Branch near the Papanashini river with revered Vrindavana and daily rituals.",
+        },
+        {
+          title: "Narala, Mangalore",
+          detail: "Historic site with Bhutaraja sannidhana and Varahatirtha pond.",
+        },
+        {
+          title: "Undaru, Udupi",
+          detail: "Temple-side branch known for annual festivals and Vishnumurthy worship.",
+        },
+        {
+          title: "Kumbhasi, Kundapur",
+          detail: "Moolamatha area with preserved shrines and Vrindavana sites.",
+        },
+        {
+          title: "Huvinakere, Kundapur",
+          detail: "Birthplace of Sri Vadiraja, with heritage shrines and Goshala facilities.",
+        },
+        {
+          title: "Renjal, Karkala",
+          detail: "Renovated branch in a tranquil setting with sacred icons and streamside views.",
+        },
+        {
+          title: "Kenchagaru, Honnavara",
+          detail: "Branch with Vrindavana and Bhutaraja presence, noted for serenity.",
+        },
+        {
+          title: "Nadyantadi, Bantwal",
+          detail: "Historic site associated with Sri Madhvacharya traditions and Vyasapushkarani.",
+        },
+        {
+          title: "Bilagi, Sirsi",
+          detail: "Riverside branch restored in modern times with strong Vadiraja legacy.",
+        },
+        {
+          title: "Gokarna",
+          detail: "Branch near Kotitirtha with lodging support for rituals and rites.",
+        },
+        {
+          title: "T. Nagar, Chennai",
+          detail: "Urban center for daily rituals and community worship.",
+        },
+        {
+          title: "N.R. Colony, Bengaluru",
+          detail: "Hayagriva Mandira branch with regular festivals and aradhanas.",
+        },
+        {
+          title: "Nadavaram, Trichur (Kerala)",
+          detail: "Hanuman temple branch with traditional worship and festivals.",
+        },
+      ],
+    },
+    contact: {
+      title: "Contact Us",
+      subtitle: "Get in touch with Sri Sode Vadiraja Matha",
+      officeEmailTitle: "Office Email",
+      mainLocationsTitle: "Main Locations",
+      proTitle: "Public Relationship Officers (PRO)",
+      proText:
+        "PROs assist devotees with sanchara details and arrangements. Please contact the office for the appropriate PRO for your region.",
+      mapQuery: "Sri Sode Vadiraja Matha, Carstreet, Udupi",
+      locations: [
+        {
+          title: "Sri Sode Vadiraja Matha, Carstreet, Udupi",
+          phones: ["+91 820 2524004"],
+        },
+        {
+          title: "Sri Sode Vadiraja Matha, Sonda, Sirsi Taluk",
+          phones: ["+91 9483357005", "+91 8277123333"],
+        },
+        {
+          title: "Sri Sode Vadiraja Matha, Gokarna",
+          phones: ["9449640074", "08386-25785"],
+        },
+      ],
+    },
+    gallery: {
+      title: "Gallery",
+      subtitle: "A preview of recent activities and events.",
+      comingSoonTitle: "Coming soon",
+      comingSoonBody: "The media gallery will be updated with photos and captions.",
+      items: [
+        {
+          id: "gallery-1",
+          title:
+            "Sri Vishwavallabha Thirtha Swamiji of Sri Sode Vadiraja Matha participated in the holy rituals of Murajapa and Lakshadeepothsava",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/N63LPPL7IY/2025/DECEMBER/24/8e02f8bf-1371-4146-a9c1-e80d0e47f9c1.jpeg",
+        },
+        {
+          id: "gallery-2",
+          title: "ಶ್ರೀ ವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥರಿಂದ ತಿರುಮಲ ಶ್ರೀನಿವಾಸ ದೇವರ ದರ್ಶನ",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/0PJO3EUTAG/2025/NOVEMBER/17/f206067a-6df3-4e29-948a-b45f4f063846.jpeg",
+        },
+        {
+          id: "gallery-3",
+          title: "ಉಂಡಾರು ಶ್ರೀವಿಷ್ಣುಮೂರ್ತಿ ದೇವಸ್ಥಾನದಲ್ಲಿ ಕಾರ್ತಿಕ ದೀಪೋತ್ಸವ.",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/9MYVDPG9Z5/2025/NOVEMBER/17/4c6505d7-e129-44a8-8297-23f0b20e76ea.jpeg",
+        },
+        {
+          id: "gallery-4",
+          title: "ಬಿಚ್ಚಾಲೆ ಜಪದಕಟ್ಟೆ ಶ್ರೀರಾಘವೇಂದ್ರ ಸ್ವಾಮಿಗಳ ಸನ್ನಿಧಿ.",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/9TPD3FZRDO/2025/NOVEMBER/17/ade8f817-f26a-4763-908e-4ada5e185979.jpeg",
+        },
+        {
+          id: "gallery-5",
+          title:
+            "ಶ್ರೀರಾಘವೇಂದ್ರ ಸ್ವಾಮಿಗಳು ಹನ್ನೆರಡು ವರ್ಷ ತಪಸ್ಸು ಮಾಡಿ ಪಂಚಮುಖಿ ಆಂಜನೇಯ ದೇವರನ್ನು ಸಾಕ್ಷಾತ್ಕರಿಸಿಕೊಂಡ ಸ್ಥಳ. ಪಂಚಮುಖಿ - ಗಾಣಧಾಳ, ರಾಯಚೂರು.",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/REARVTOEV8/2025/NOVEMBER/17/30ee82eb-5a9d-499d-877a-517d3d273e1a.jpeg",
+        },
+        {
+          id: "gallery-6",
+          title: "ಶ್ರೀರಘುಪ್ರೇಮ ತೀರ್ಥರ ಸನ್ನಿಧಿ , ಆದೋನಿ",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/FHDDG1UFYX/2025/NOVEMBER/09/4dad4398-cfb2-4d14-a3d6-9f0a6e4cd03e.jpeg",
+        },
+        {
+          id: "gallery-7",
+          title:
+            "ಮನೆಯಲ್ಲಿ ಶ್ರೀಭೂತರಾಜರ ವಿಶೇಷ ಪೂಜೆ ಹಾಗೂ ಸಂಸ್ಥಾನ ದೇವರ ಪೂಜೆ ನಡೆಯಿತು",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/QSYWQNJDFV/2025/NOVEMBER/05/0fd4c28a-7b01-491c-84e6-8eec9dffbdd7.jpeg",
+        },
+        {
+          id: "gallery-8",
+          title:
+            "Sri Vishwavallabha Thirtha Swamiji inaugurated the new centre by lighting the lamp on the holy occasion of Aradhana Festival of Sri Vijayadasaru",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/KU0T0FZ109/2025/NOVEMBER/05/8f0e87bd-9a0e-4a03-a429-7426cd39b784.jpeg",
+        },
+        {
+          id: "gallery-9",
+          title:
+            "ಹುಬ್ಬಳ್ಳಿ ಗುರುರಾಜ ಪಾದಯಾತ್ರಾ ಸಂಘದ ಹುಬ್ಬಳ್ಳಿಯಿಂದ ಸೋದೆಗೆ ನಡೆಸುವ 25ನೇ ವರ್ಷದ ಪಾದಯಾತ್ರೆಗೆ ಶ್ರೀವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥರು ಚಾಲನೆ ನೀಡಿ ಹುಬ್ಬಳ್ಳಿಯಿಂದ ಛಬ್ಬಿವರೆಗೆ 18km ಪಾದಯಾತ್ರೆ ನಡೆಸಿದರು",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/TV41IH76JJ/2025/OCTOBER/11/651428e4-3c86-4377-91a2-b543148c1119.jpeg",
+        },
+        {
+          id: "gallery-10",
+          title:
+            "ಕೋಟೇಶ್ವರ ಶ್ರೀಕೋದಂಡರಾಮ ಮಂದಿರದ ಅಮೃತ ಮಹೋತ್ಸವದಲ್ಲಿ ಶ್ರೀವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥರಿಂದ ಜ್ಞಾನ ಸತ್ರ ಉದ್ಘಾಟನೆ ಹಾಗೂ ರಾಮಾಯಣ ಬಾಲಕಾಂಡ ಉಪನ್ಯಾಸ",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/3QKU44ID5U/2025/OCTOBER/06/8348ad2c-dc55-46c9-b72c-34a033f3a30d.jpeg",
+        },
+        {
+          id: "gallery-11",
+          title:
+            "\"ಕಲ್ಪವೃಕ್ಷ ವನ\" ನಿರ್ಮಾಣಕ್ಕೆ ಶ್ರೀ ವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥರು ತೆಂಗಿನಸಸಿ ನೆಡುವುದರ ಮೂಲಕ ಚಾಲನೆ ನೀಡಿದರು",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/ANWFXNDRCE/2025/OCTOBER/06/34c7cb29-676a-4e96-a8cb-e1835613dae9.jpeg",
+        },
+      ],
+    },
+    panchanga: {
+      title: "Today's Panchanga",
+      subtitle: "Daily almanac details",
+      labels: {
+        samvatsara: "Samvatsara",
+        ayana: "Ayana",
+        rithu: "Rithu",
+        sauraMasa: "SauraMasa",
+        chandraMasa: "ChandraMasa",
+        paksha: "Paksha",
+        tithi: "Tithi",
+        nakshatra: "Nakshatra",
+        yoga: "Yoga",
+        karana: "Karana",
+        sunrise: "Sunrise",
+        sunset: "Sunset",
+      },
+      sample: {
+        date: "30-01-2022",
+        weekday: "Sunday",
+        samvatsara: "Plava Samvathsara",
+        ayana: "Uttarayana",
+        rithu: "Hemanta",
+        sauraMasa: "Makara",
+        chandraMasa: "Pushya",
+        paksha: "Krishna",
+        tithi: "Trayodashi",
+        nakshatra: "Purva Ashadha",
+        yoga: "Harshana",
+        karana: "Vanije",
+        tithiTime: "24.44",
+        nakshatraTime: "43.12",
+        sunrise: "6.58",
+        sunset: "6.29",
+      },
+    },
+    quiz: {
+      title: "Quiz",
+      subtitle: "Parampara quiz (sample questions)",
+      answerLabel: "Answer",
+      scoreTitle: "Your Score",
+      scoreText: "You scored {{score}} / {{total}}",
+      retake: "Retake Quiz",
+      items: [
+        {
+          id: "q1",
+          question: "What does 'Parampara' most commonly refer to?",
+          options: [
+            "A lineage or succession of teachers",
+            "A daily festival celebration",
+            "A temple structure style",
+          ],
+          answer: "A lineage or succession of teachers",
+        },
+        {
+          id: "q2",
+          question: "In a matha tradition, who usually preserves teachings and practices?",
+          options: [
+            "The succession of pontiffs",
+            "Local merchants",
+            "Seasonal visitors",
+          ],
+          answer: "The succession of pontiffs",
+        },
+        {
+          id: "q3",
+          question: "What is a key purpose of maintaining a parampara record?",
+          options: [
+            "To document spiritual lineage and heritage",
+            "To list only temple finances",
+            "To track rainfall statistics",
+          ],
+          answer: "To document spiritual lineage and heritage",
+        },
+        {
+          id: "q4",
+          question: "Which word best fits the role of a guru in the parampara?",
+          options: ["Teacher", "Architect", "Farmer"],
+          answer: "Teacher",
+        },
+        {
+          id: "q5",
+          question: "Why are aradhana dates often noted in lineage records?",
+          options: [
+            "To honor key anniversaries",
+            "To plan construction work",
+            "To assign administrative duties",
+          ],
+          answer: "To honor key anniversaries",
+        },
+        {
+          id: "q6",
+          question: "What does 'Peetadhipathi' indicate in many matha traditions?",
+          options: [
+            "The head of the matha",
+            "A temple musician",
+            "A village council member",
+          ],
+          answer: "The head of the matha",
+        },
+      ],
+    },
+    resources: {
+      title: "Resources",
+      subtitle: "A summary of available publications and learning materials.",
+      accessTitle: "How to access",
+      accessBody:
+        "Please contact the office for the latest publication list and access instructions.",
+      items: [
+        {
+          title: "Annual and seasonal publications",
+          detail:
+            "Periodicals and commemorative releases that document events, teachings, and schedules.",
+        },
+        {
+          title: "Devotional and philosophical texts",
+          detail:
+            "Curated writings, commentaries, and learning materials for devotees and students.",
+        },
+        {
+          title: "Event and seva guides",
+          detail:
+            "Practical resources that explain seva procedures, rituals, and participation details.",
+        },
+      ],
+    },
+    sevaBooking: {
+      subtitle: "Seva booking requests will be enabled here.",
+      searchPlaceholder: "Search seva...",
+      listening: "Listening…",
+      voiceError: "Voice recognition failed",
+      voiceUnavailable: "Voice module is not available. Rebuild the app.",
+      voiceStartFailed: "Unable to start voice input",
+      currentStatusTitle: "Current status",
+      currentStatusBody: "Please contact the office to confirm seva availability and timing.",
+      selectSevaTitle: "Select seva",
+      noSevasFound: "No sevas match your search.",
+      requestButton: "Request Seva Booking",
+      sevaList: [
+        { id: 1, name: "06/03/2026 - ಗುರುರಾಜರಿಗೆ ವಿಶೇಷ ಹಸ್ತೋದಕ ಸೇವೆ", price: 500 },
+        { id: 2, name: "04/03/2026 - ಕಲ್ಯಾಣೋತ್ಸವ ಸೇವೆ", price: 1000 },
+        { id: 3, name: "03/03/2026 - ರಥೋತ್ಸವ ಸೇವೆ", price: 1000 },
+        { id: 4, name: "02/03/2026 - ಭೂತರಾಜರ ದಂಡೆಬಲಿ ವಿಶೇಷ ಕಾಣಿಕೆ", price: 1000 },
+        { id: 5, name: "ಒಂದು ದಿನದ ಸಂಪೂರ್ಣ ಸೇವೆ (ಅನ್ನದಾನ ಸಹಿತ)", price: 5001 },
+        { id: 6, name: "ಮಹಾ ಸರ್ವಸೇವಾ (ರಾತ್ರಿ ವಿಶೇಷ ಭೂತರಾಜರ ಪೂಜಾ ಸಹಿತ)", price: 1500 },
+        { id: 7, name: "ತುಳಸಿ ಅರ್ಚನೆ (ಶ್ರೀ ತ್ರಿವಿಕ್ರಮ ದೇವರಿಗೆ)", price: 25 },
+        { id: 8, name: "ಪ್ರತ್ಯಕ್ಷ ಗೋದಾನ (ಉತ್ತಮ)", price: 25000 },
+        { id: 9, name: "ಪ್ರತೃಕ್ತ ಗೋದಾನ (ಮಧ್ಯಮ)", price: 15000 },
+        { id: 10, name: "ಗೋದಾನ ( ದಕ್ಷಿಣೆ ಹೊರತು)", price: 3000 },
+        { id: 11, name: "ನಂದಾದೀಪ ( ವರ್ಷ 1 ರ)", price: 1200 },
+        { id: 12, name: "ನಂದಾದೀಪ (ತಿಂಗಳ 1 ರ)", price: 100 },
+        { id: 13, name: "ಶ್ರೀ ಭೂತರಾಜರ ವಿಶೇಷ ರಾತ್ರಿ ಪೂಜಾ", price: 101 },
+        { id: 14, name: "ತುಲಾಭಾರ (ಸಾಮ್ಯ ರಹಿತ ಮತ್ತು ದಕ್ಷಿಣೆ ಪ್ರತ್ಯೇಕ)", price: 100 },
+        { id: 15, name: "ಕುಂಕುಮಾರ್ಚನೆ (ರಮಾ ದೇವಿಗೆ)", price: 10 },
+      ],
     },
   },
   kn: {
     login: {
       title: "ಶ್ರೀ ಸೋದೆ ವಾದಿರಾಜ ಮಠ",
-      welcome: "ಹರಿ ಸರ್ವೋತ್ತಮ ವಾಯು ಜೀವೋತ್ತಮ",
+      welcome: "ಸ್ವಾಗತ",
       mobileNumber: "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",
       enterDigits: "{{digits}}-ಅಂಕಿಯ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",
       consent: "ನಾನು ಓದಿದ್ದೇನೆ ಮತ್ತು ಒಪ್ಪುತ್ತೇನೆ",
@@ -151,6 +610,7 @@ export const translations = {
       changeNumber: "ಸಂಖ್ಯೆ ಬದಲಾಯಿಸಿ",
       copyright: "© 2025 ಶ್ರೀ ಸೋದೆ ವಾದಿರಾಜ ಮಠ",
       contactUs: "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
+      mobileRequired: "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಗತ್ಯವಿದೆ",
       confirmationRequired: "ದೃಢೀಕರಣ ಅಗತ್ಯವಿದೆ",
       confirmationMessage: "ದಯವಿಟ್ಟು ಗೌಪ್ಯತಾ ನೀತಿ ಮತ್ತು ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಓದಿದ್ದೇನೆ ಮತ್ತು ಒಪ್ಪುತ್ತೇನೆ ಎಂದು ದೃಢೀಕರಿಸಿ.",
       otpSent: "OTP ಕಳುಹಿಸಲಾಗಿದೆ",
@@ -159,12 +619,31 @@ export const translations = {
       invalidOTP: "ಅಮಾನ್ಯ OTP",
       invalidOTPMessage: "ದಯವಿಟ್ಟು 6-ಅಂಕಿಯ OTP ನಮೂದಿಸಿ.",
       otpVerificationFailed: "OTP ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ",
+      yourNumber: "ನಿಮ್ಮ ಸಂಖ್ಯೆ",
       invalidNumber: "ಅಮಾನ್ಯ ಸಂಖ್ಯೆ",
       invalidNumberMessage: "ಮಾನ್ಯವಾದ {{digits}}-ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",
       enterMobileNumber: "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",
       enterValidMobileNumber: "ದಯವಿಟ್ಟು ಮೊದಲು ಮಾನ್ಯವಾದ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.",
       selectCountry: "ದೇಶ ಆಯ್ಕೆಮಾಡಿ",
       searchCountry: "ದೇಶ ಹುಡುಕಿ...",
+      policyPlaceholder: "TODO: {{title}} ವಿಷಯವನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಿ ಅಥವಾ WebView/remote URL ಮೂಲಕ ಪ್ರದರ್ಶಿಸಿ.",
+      policyTip: "Tip: ಈ ದಾಖಲೆಗಳನ್ನು ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಪ್ರಕಟಿಸಿ ಮತ್ತು ಅಪ್‌ನ ಒಳಗಿನ WebView ನಲ್ಲಿ ತೋರಿಸಿ.",
+    },
+    common: {
+      languageSwitchLabel: "ಭಾಷೆ ಬದಲಾಯಿಸಿ",
+      languageEnglish: "English",
+      languageKannada: "ಕನ್ನಡ",
+      logout: "ಲಾಗೌಟ್",
+      signOut: "ಸೈನ್ ಔಟ್",
+      readMore: "ಇನ್ನಷ್ಟು ಓದಿ",
+      openContactPage: "ಸಂಪರ್ಕ ಪುಟ ತೆರೆಸಿ",
+      sendEmail: "ಇಮೇಲ್ ಕಳುಹಿಸಿ",
+      openMap: "ನಕ್ಷೆ ತೆರೆಯಿರಿ",
+      close: "ಮುಚ್ಚಿ",
+      unknownError: "ತಿಳಿಯದ ದೋಷ",
+      yes: "ಹೌದು",
+      no: "ಇಲ್ಲ",
+      next: "ಮುಂದೆ",
     },
     home: {
       title: "ಶ್ರೀ ಸೋದೆ ವಾದಿರಾಜ ಮಠ",
@@ -187,6 +666,8 @@ export const translations = {
       signOut: "ಸೈನ್ ಔಟ್",
       vishwothamaSwamiji: "ಶ್ರೀ ಶ್ರೀ ವಿಶ್ವೋತ್ತಮ ತೀರ್ಥ ಸ್ವಾಮೀಜಿ",
       vishwavallabhaSwamiji: "ಶ್ರೀ ಶ್ರೀ ವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥ ಸ್ವಾಮೀಜಿ",
+      logoPlaceholder: "ಲೋಗೋ",
+      newsImagePlaceholder: "ಸುದ್ದಿ ಚಿತ್ರ",
     },
     tabs: {
       home: "ಮುಖಪುಟ",
@@ -196,6 +677,11 @@ export const translations = {
       profile: "ನೊಂದಣಿ",
       eventCalendar: "ಕಾರ್ಯಕ್ರಮ ಕ್ಯಾಲೆಂಡರ್",
       history: "ಇತಿಹಾಸ",
+      branches: "ಶಾಖೆಗಳು",
+      gallery: "ಗ್ಯಾಲರಿ",
+      resources: "ಸಂಪನ್ಮೂಲಗಳು",
+      quiz: "ಪ್ರಶ್ನೋತ್ತರ",
+      contactUs: "ಸಂಪರ್ಕಿಸಿ",
     },
     profile: {
       title: "ಭಕ್ತರ ನೊಂದಣಿ",
@@ -225,6 +711,7 @@ export const translations = {
       subtitle: "ಸೋಡೆ ಮಠ ಅತಿಥಿ ಕೋಣೆಗಳು",
       checkIn: "ಚೆಕ್-ಇನ್ ದಿನಾಂಕ (YYYY-MM-DD)",
       checkOut: "ಚೆಕ್-ಔಟ್ ದಿನಾಂಕ (YYYY-MM-DD)",
+      datePlaceholder: "YYYY-MM-DD",
       guests: "ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ",
       request: "ಬುಕಿಂಗ್ ವಿನಂತಿ ಸಲ್ಲಿಸಿ",
       consent: "ಈ ವಿನಂತಿಗೆ ಡೇಟಾ ಸಂಗ್ರಹಕ್ಕೆ ಅನುಮತಿ",
@@ -232,6 +719,15 @@ export const translations = {
       emailSubject: "ಕೊಠಡಿ ಬುಕಿಂಗ್ ವಿನಂತಿ",
       emailBodyTitle: "ಕೊಠಡಿ ಬುಕಿಂಗ್ ವಿವರಗಳು",
       sent: "ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಇಮೇಲ್‌ನಲ್ಲಿ ಸಿದ್ಧಪಡಿಸಲಾಗಿದೆ.",
+      emailLabels: {
+        name: "ಹೆಸರು",
+        mobile: "ಮೊಬೈಲ್",
+        email: "ಇಮೇಲ್",
+        checkIn: "ಚೆಕ್-ಇನ್",
+        checkOut: "ಚೆಕ್-ಔಟ್",
+        guests: "ಅತಿಥಿಗಳು",
+        consent: "ಒಪ್ಪಿಗೆ",
+      },
     },
     eventCalendar: {
       title: "ಕಾರ್ಯಕ್ರಮ ಕ್ಯಾಲೆಂಡರ್",
@@ -246,6 +742,45 @@ export const translations = {
       noEvents: "ನಿಮ್ಮ ಹುಡುಕಿಕೆಗೆ ಯಾವುದೇ ಕಾರ್ಯಕ್ರಮಗಳು ಇಲ್ಲ.",
       tithi: "ತಿಥಿ",
       location: "ಸ್ಥಳ",
+      events: [
+        {
+          id: "1",
+          title: "ಆರಾಧನೆ",
+          date: "2026-02-20",
+          weekday: "ಶುಕ್ರವಾರ",
+          tithi: "ಮಾಘ ಶುಕ್ಲ ನವಮಿ",
+          type: "Aradhana",
+          location: "ಸೋಡೆ",
+          description: "ಈ ಮಾದರಿ ವಿಷಯವನ್ನು ಆಡ್ಮಿನ್ ನಿರ್ವಹಿತ ವಿಷಯದಿಂದ ಬದಲಿಸಲಾಗುತ್ತದೆ.",
+        },
+        {
+          id: "2",
+          title: "ಉತ್ಸವ",
+          date: "2026-03-08",
+          weekday: "ಭಾನುವಾರ",
+          tithi: "ಫಾಲ್ಗುಣ ಶುಕ್ಲ ಏಕಾದಶಿ",
+          type: "Festival",
+          location: "ಉಡುಪಿ",
+        },
+        {
+          id: "3",
+          title: "ಪರ್ಯಾಯ ಕಾರ್ಯಕ್ರಮ",
+          date: "2026-04-15",
+          weekday: "ಬುಧವಾರ",
+          tithi: "ಚೈತ್ರ ಕೃಷ್ಣ ಅಷ್ಟಮಿ",
+          type: "Paryaya",
+          location: "ಉಡುಪಿ",
+        },
+        {
+          id: "4",
+          title: "ವಾರದ ಪ್ರವಚನ",
+          date: "2026-02-16",
+          weekday: "ಸೋಮವಾರ",
+          tithi: "ಮಾಘ ಕೃಷ್ಣ ದ್ವಾದಶಿ",
+          type: "Other",
+          location: "ಸೋಡೆ",
+        },
+      ],
     },
     history: {
       title: "ಇತಿಹಾಸ ಮತ್ತು ಪರಂಪರೆ",
@@ -265,6 +800,388 @@ export const translations = {
       detailsPending: "ವಿವರಗಳನ್ನು ಆಡ್ಮಿನ್ ನವೀಕರಿಸುತ್ತಾರೆ.",
       bhootarajaruTitle: "ಶ್ರೀ ಭೂತರಾಜರು",
       bhootarajaruText: "ಮಠದ ಪವಿತ್ರ ರಕ್ಷಕ. ಸಂಪೂರ್ಣ ವಿವರಗಳನ್ನು ಶೀಘ್ರದಲ್ಲಿ ಪ್ರಕಟಿಸಲಾಗುತ್ತದೆ.",
+      paramparaScreenTitle: "ಪರಂಪರೆ",
+      paramparaScreenSubtitle: "ಪೀಠಾಧಿಪತಿಗಳ ಪರಂಪರೆಯ ಸಂಕ್ಷಿಪ್ತ ಅವಲೋಕನ.",
+      overviewTitle: "ಸಾರಾಂಶ",
+      lineageTitle: "ಪೀಠಾಧಿಪತಿಗಳ ಸಾಲು (36)",
+      paramparaSummary: [
+        "ಶ್ರೀ ಸೋದೆ ವಾದಿರಾಜ ಮಠವು ಜಗದ್ಗುರು ಶ್ರೀಮನ್ ಮಧ್ವಾಚಾರ್ಯರ ಪರಂಪರೆಯನ್ನು ಅನುಸರಿಸುತ್ತದೆ.",
+        "ಈ ಪರಂಪರೆ ಪೀಠಾಧಿಪತಿಗಳ ಉತ್ತರಾಧಿಕಾರವನ್ನು ಮತ್ತು ಬೋಧನೆಗಳ ನಿರಂತರತೆಯನ್ನು ದಾಖಲಿಸುತ್ತದೆ.",
+        "ಶ್ರೀ ವಾದಿರಾಜ ತೀರ್ಥರು ಮಠದ ಪರಂಪರೆ ಮತ್ತು ಪರಂಪರೆಯ ಕೇಂದ್ರಸ್ಥಾನ.",
+        "ಈ ಪರಂಪರೆ ಪ್ರಸ್ತುತ ಪೀಠಾಧಿಪತಿವರೆಗೆ ಮುಂದುವರಿಯುತ್ತದೆ.",
+      ],
+      paramparaLineage: [
+        "Sri Vishnutirtha",
+        "Sri Vyaasatirtha",
+        "Sri Vedyatirtha",
+        "Sri Vedagarbhatirtha",
+        "Sri Vareshatirtha",
+        "Sri Vamanatirtha",
+        "Sri Vasudevatirtha",
+        "Sri Vedavyasatirtha",
+        "Sri Varahatirtha",
+        "Sri Vedatmatirtha",
+        "Sri Vishwavandyatirtha - I",
+        "Sri Ratnagarbhatirtha",
+        "Sri Vedangatirtha",
+        "Sri Vidyapatitirtha",
+        "Sri Vishwavandyatirtha - II",
+        "Sri Vishwatirtha",
+        "Sri Vitthalatirtha",
+        "Sri Varadarajatirtha - I",
+        "Sri Vagishatirtha",
+        "Sri Vadirajatirtharu",
+        "Sri Vedavedyatirtha - (1530-1616)",
+        "Sri Vidyanidhitirtha",
+        "Sri Vedanidhitirtha",
+        "Sri Varadarajatirtha - II",
+        "Sri Vishwadhirajatirtha",
+        "Sri Vadivandyatirtha",
+        "Sri Vishwavandyatirtha - III",
+        "Sri Vibudhavaryatirtha",
+        "Sri Vishwanidhitirtha",
+        "Sri Vishwadhishwaratirtha",
+        "Sri Vishweshatirtha",
+        "Sri Vishwapriyatirtha (Srimadvrindavan acharya) - 1774-1865",
+        "Sri Vishwadhishatirtha",
+        "Sri Vishwendratirtha",
+        "Sri Vishwottamatirtha : (1934-2007)",
+        "Sri Vishwavallabhatirtha (The Present Pontiff)",
+      ],
+    },
+    branches: {
+      title: "ಶಾಖೆಗಳು",
+      subtitle: "ಪ್ರಮುಖ ಶಾಖೆಗಳು ಮತ್ತು ಪರಂಪರೆ ಕೇಂದ್ರಗಳ ಸಂಕ್ಷಿಪ್ತ ಅವಲೋಕನ.",
+      items: [
+        {
+          title: "ಕಾರ್ ಸ್ಟ್ರೀಟ್, ಉಡುಪಿ",
+          detail:
+            "ಪೂಜೆ ಮಂದಿರಗಳು, ಆಡಳಿತ ಕಚೇರಿಗಳು ಮತ್ತು ಮಾಸಿಕ ವಿಶೇಷ ಪೂಜೆಗಳೊಂದಿಗೆ ಪ್ರಮುಖ ಮಠ ಸಂಕೀರ್ಣ.",
+        },
+        {
+          title: "ಸೋಡೆ, ಸಿರಸಿ ತಾಲ್ಲೂಕು",
+          detail:
+            "ಮಂದಿರಗಳು, ಪವಿತ್ರ ಕೆರೆಗಳು ಮತ್ತು ಪಂಚವೃಂದಾವನ ಸಂಕೀರ್ಣವಿರುವ ಪ್ರಧಾನ ಪರಂಪರೆ ಕೇಂದ್ರ.",
+        },
+        {
+          title: "ಪಂಜಿಮಾರು, ಶಿರ್ವ",
+          detail:
+            "ಪಾರಂಪರಿಕ ಮರದ ಕೆಲಸ ಹಾಗೂ ಸಣ್ಣ ಪವಿತ್ರ ಕೆರೆಯೊಂದಿಗೆ ಶಾಂತ ಅಧ್ಯಯನ ಮತ್ತು ಧ್ಯಾನ ಕೇಂದ್ರ.",
+        },
+        {
+          title: "ಉದ್ಯಾವರ, ಉಡುಪಿ",
+          detail:
+            "ಪಾಪನಾಶಿನಿ ನದಿಯ ಬಳಿಯ ಶಾಖೆ; ವೃಂದಾವನ ಹಾಗೂ ದೈನಂದಿನ ಪೂಜೆಗಳಿಗಾಗಿ ಪ್ರಸಿದ್ಧ.",
+        },
+        {
+          title: "ನರಳ, ಮಂಗಳೂರು",
+          detail: "ಭೂತರಾಜ ಸನ್ನಿಧಾನ ಮತ್ತು ವರಾಹತೀರ್ಥ ಕೆರೆಯೊಂದಿಗೆ ಐತಿಹಾಸಿಕ ಸ್ಥಳ.",
+        },
+        {
+          title: "ಉಂದಾರು, ಉಡುಪಿ",
+          detail: "ವಾರ್ಷಿಕ ಹಬ್ಬಗಳು ಮತ್ತು ವಿಷ್ಣುಮೂರ್ತಿ ಆರಾಧನೆಯಿಗಾಗಿ ಪ್ರಸಿದ್ಧ ಶಾಖೆ.",
+        },
+        {
+          title: "ಕುಂಭಾಶಿ, ಕುಂದಾಪುರ",
+          detail: "ಮೂಲಮಠ ಪ್ರದೇಶ; ಸಂರಕ್ಷಿತ ತೀರ್ಥಕ್ಷೇತ್ರಗಳು ಮತ್ತು ವೃಂದಾವನ ಸ್ಥಳಗಳು.",
+        },
+        {
+          title: "ಹುವಿನಕೆರೆ, ಕುಂದಾಪುರ",
+          detail: "ಶ್ರೀ ವಾದಿರಾಜರ ಜನ್ಮಸ್ಥಳ; ಪರಂಪರೆ ಶ್ರೇಣಿಗಳು ಮತ್ತು ಗೋಶಾಲಾ ಸೌಲಭ್ಯಗಳು.",
+        },
+        {
+          title: "ರೆಂಜಲ್, ಕಾರ್ಕಳ",
+          detail: "ಶಾಂತ ಪರಿಸರದ ನವೀಕರಣಗೊಂಡ ಶಾಖೆ; ಪವಿತ್ರ ಪ್ರತಿಮೆಗಳು ಮತ್ತು ಹರಿವಿನ ನೋಟಗಳು.",
+        },
+        {
+          title: "ಕೆಂಚಗಾರು, ಹೊನ್ನಾವರ",
+          detail: "ವೃಂದಾವನ ಮತ್ತು ಭೂತರಾಜರ ಉಪಸ್ಥಿತಿಯ ಶಾಖೆ; ಶಾಂತತೆಗೆ ಪ್ರಸಿದ್ಧ.",
+        },
+        {
+          title: "ನದ್ಯಂತಡಿ, ಬಂಟ್ವಾಳ",
+          detail: "ಶ್ರೀ ಮಧ್ವಾಚಾರ್ಯರ ಪರಂಪರೆಯೊಂದಿಗೆ ಸಂಬಂಧಿಸಿದ ಐತಿಹಾಸಿಕ ಸ್ಥಳ.",
+        },
+        {
+          title: "ಬಿಲಗಿ, ಸಿರಸಿ",
+          detail: "ಆಧುನಿಕ ಕಾಲದಲ್ಲಿ ಪುನರ್ ಸ್ಥಾಪನೆಯಾದ ನದಿತೀರದ ಶಾಖೆ.",
+        },
+        {
+          title: "ಗೋಕರ್ಣ",
+          detail: "ಕೋಟಿತೀರ್ಥದ ಬಳಿಯ ಶಾಖೆ; ಪೂಜೆ/ವಿಧಿಗಳಿಗಾಗಿ ವಾಸ್ತವ್ಯ ಸೌಲಭ್ಯ.",
+        },
+        {
+          title: "ಟಿ.ನಗರ, ಚೆನ್ನೈ",
+          detail: "ದೈನಂದಿನ ಪೂಜೆಗಳು ಮತ್ತು ಸಮುದಾಯ ಆರಾಧನೆಗಾಗಿ ನಗರ ಕೇಂದ್ರ.",
+        },
+        {
+          title: "ಎನ್.ಆರ್. ಕಾಲೋನಿ, ಬೆಂಗಳೂರು",
+          detail: "ಹಯಗ್ರೀವ ಮಂದಿರ ಶಾಖೆ; ನಿಯಮಿತ ಹಬ್ಬಗಳು ಮತ್ತು ಆರಾಧನೆಗಳು.",
+        },
+        {
+          title: "ನಾಡವರಂ, ತ್ರಿಚೂರ್ (ಕೇರಳ)",
+          detail: "ಹನುಮಾನ್ ದೇವಾಲಯ ಶಾಖೆ; ಪಾರಂಪರಿಕ ಪೂಜೆಗಳು ಮತ್ತು ಹಬ್ಬಗಳು.",
+        },
+      ],
+    },
+    contact: {
+      title: "ಸಂಪರ್ಕಿಸಿ",
+      subtitle: "ಶ್ರೀ ಸೋದೆ ವಾದಿರಾಜ ಮಠವನ್ನು ಸಂಪರ್ಕಿಸಿ",
+      officeEmailTitle: "ಕಾರ್ಯಾಲಯ ಇಮೇಲ್",
+      mainLocationsTitle: "ಪ್ರಮುಖ ಸ್ಥಳಗಳು",
+      proTitle: "ಸಾರ್ವಜನಿಕ ಸಂಪರ್ಕ ಅಧಿಕಾರಿಗಳು (PRO)",
+      proText:
+        "PRO ಗಳು ಸಂಚಾರ ಮತ್ತು ವ್ಯವಸ್ಥೆಗಳ ವಿವರಗಳಲ್ಲಿ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಪ್ರದೇಶದ PROಗಾಗಿ ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      mapQuery: "Sri Sode Vadiraja Matha, Carstreet, Udupi",
+      locations: [
+        {
+          title: "Sri Sode Vadiraja Matha, Carstreet, Udupi",
+          phones: ["+91 820 2524004"],
+        },
+        {
+          title: "Sri Sode Vadiraja Matha, Sonda, Sirsi Taluk",
+          phones: ["+91 9483357005", "+91 8277123333"],
+        },
+        {
+          title: "Sri Sode Vadiraja Matha, Gokarna",
+          phones: ["9449640074", "08386-25785"],
+        },
+      ],
+    },
+    gallery: {
+      title: "ಗ್ಯಾಲರಿ",
+      subtitle: "ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ಕಾರ್ಯಕ್ರಮಗಳ ಮುನ್ನೋಟ.",
+      comingSoonTitle: "ಶೀಘ್ರದಲ್ಲೇ",
+      comingSoonBody: "ಚಿತ್ರಗಳು ಮತ್ತು ಶೀರ್ಷಿಕೆಗಳೊಂದಿಗೆ ಗ್ಯಾಲರಿ ನವೀಕರಿಸಲಾಗುತ್ತದೆ.",
+      items: [
+        {
+          id: "gallery-1",
+          title:
+            "Sri Vishwavallabha Thirtha Swamiji of Sri Sode Vadiraja Matha participated in the holy rituals of Murajapa and Lakshadeepothsava",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/N63LPPL7IY/2025/DECEMBER/24/8e02f8bf-1371-4146-a9c1-e80d0e47f9c1.jpeg",
+        },
+        {
+          id: "gallery-2",
+          title: "ಶ್ರೀ ವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥರಿಂದ ತಿರುಮಲ ಶ್ರೀನಿವಾಸ ದೇವರ ದರ್ಶನ",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/0PJO3EUTAG/2025/NOVEMBER/17/f206067a-6df3-4e29-948a-b45f4f063846.jpeg",
+        },
+        {
+          id: "gallery-3",
+          title: "ಉಂಡಾರು ಶ್ರೀವಿಷ್ಣುಮೂರ್ತಿ ದೇವಸ್ಥಾನದಲ್ಲಿ ಕಾರ್ತಿಕ ದೀಪೋತ್ಸವ.",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/9MYVDPG9Z5/2025/NOVEMBER/17/4c6505d7-e129-44a8-8297-23f0b20e76ea.jpeg",
+        },
+        {
+          id: "gallery-4",
+          title: "ಬಿಚ್ಚಾಲೆ ಜಪದಕಟ್ಟೆ ಶ್ರೀರಾಘವೇಂದ್ರ ಸ್ವಾಮಿಗಳ ಸನ್ನಿಧಿ.",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/9TPD3FZRDO/2025/NOVEMBER/17/ade8f817-f26a-4763-908e-4ada5e185979.jpeg",
+        },
+        {
+          id: "gallery-5",
+          title:
+            "ಶ್ರೀರಾಘವೇಂದ್ರ ಸ್ವಾಮಿಗಳು ಹನ್ನೆರಡು ವರ್ಷ ತಪಸ್ಸು ಮಾಡಿ ಪಂಚಮುಖಿ ಆಂಜನೇಯ ದೇವರನ್ನು ಸಾಕ್ಷಾತ್ಕರಿಸಿಕೊಂಡ ಸ್ಥಳ. ಪಂಚಮುಖಿ - ಗಾಣಧಾಳ, ರಾಯಚೂರು.",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/REARVTOEV8/2025/NOVEMBER/17/30ee82eb-5a9d-499d-877a-517d3d273e1a.jpeg",
+        },
+        {
+          id: "gallery-6",
+          title: "ಶ್ರೀರಘುಪ್ರೇಮ ತೀರ್ಥರ ಸನ್ನಿಧಿ , ಆದೋನಿ",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/FHDDG1UFYX/2025/NOVEMBER/09/4dad4398-cfb2-4d14-a3d6-9f0a6e4cd03e.jpeg",
+        },
+        {
+          id: "gallery-7",
+          title: "ಮನೆಯಲ್ಲಿ ಶ್ರೀಭೂತರಾಜರ ವಿಶೇಷ ಪೂಜೆ ಹಾಗೂ ಸಂಸ್ಥಾನ ದೇವರ ಪೂಜೆ ನಡೆಯಿತು",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/QSYWQNJDFV/2025/NOVEMBER/05/0fd4c28a-7b01-491c-84e6-8eec9dffbdd7.jpeg",
+        },
+        {
+          id: "gallery-8",
+          title:
+            "Sri Vishwavallabha Thirtha Swamiji inaugurated the new centre by lighting the lamp on the holy occasion of Aradhana Festival of Sri Vijayadasaru",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/KU0T0FZ109/2025/NOVEMBER/05/8f0e87bd-9a0e-4a03-a429-7426cd39b784.jpeg",
+        },
+        {
+          id: "gallery-9",
+          title:
+            "ಹುಬ್ಬಳ್ಳಿ ಗುರುರಾಜ ಪಾದಯಾತ್ರಾ ಸಂಘದ ಹುಬ್ಬಳ್ಳಿಯಿಂದ ಸೋದೆಗೆ ನಡೆಸುವ 25ನೇ ವರ್ಷದ ಪಾದಯಾತ್ರೆಗೆ ಶ್ರೀವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥರು ಚಾಲನೆ ನೀಡಿ ಹುಬ್ಬಳ್ಳಿಯಿಂದ ಛಬ್ಬಿವರೆಗೆ 18km ಪಾದಯಾತ್ರೆ ನಡೆಸಿದರು",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/TV41IH76JJ/2025/OCTOBER/11/651428e4-3c86-4377-91a2-b543148c1119.jpeg",
+        },
+        {
+          id: "gallery-10",
+          title:
+            "ಕೋಟೇಶ್ವರ ಶ್ರೀಕೋದಂಡರಾಮ ಮಂದಿರದ ಅಮೃತ ಮಹೋತ್ಸವದಲ್ಲಿ ಶ್ರೀವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥರಿಂದ ಜ್ಞಾನ ಸತ್ರ ಉದು್ಘಾಟನೆ ಹಾಗೂ ರಾಮಾಯಣ ಬಾಲಕಾಂಡ ಉಪನ್ಯಾಸ",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/3QKU44ID5U/2025/OCTOBER/06/8348ad2c-dc55-46c9-b72c-34a033f3a30d.jpeg",
+        },
+        {
+          id: "gallery-11",
+          title:
+            "\"ಕಲ್ಪವೃಕ್ಷ ವನ\" ನಿರ್ಮಾಣಕ್ಕೆ ಶ್ರೀ ವಿಶ್ವವಲ್ಲಭ ತೀರ್ಥರು ತೆಂಗಿನಸಸಿ ನೆಡುವುದರ ಮೂಲಕ ಚಾಲನೆ ನೀಡಿದರು",
+          imageUrl:
+            "https://d30zxh84wzmvu7.cloudfront.net/events/ANWFXNDRCE/2025/OCTOBER/06/34c7cb29-676a-4e96-a8cb-e1835613dae9.jpeg",
+        },
+      ],
+    },
+    panchanga: {
+      title: "ಇಂದಿನ ಪಂಚಾಂಗ",
+      subtitle: "ದೈನಂದಿನ ಪಂಚಾಂಗ ವಿವರಗಳು",
+      labels: {
+        samvatsara: "ಸಂವತ್ಸರ",
+        ayana: "ಅಯನ",
+        rithu: "ಋತು",
+        sauraMasa: "ಸೌರಮಾಸ",
+        chandraMasa: "ಚಂದ್ರಮಾಸ",
+        paksha: "ಪಕ್ಷ",
+        tithi: "ತಿಥಿ",
+        nakshatra: "ನಕ್ಷತ್ರ",
+        yoga: "ಯೋಗ",
+        karana: "ಕರಣ",
+        sunrise: "ಸೂರ್ಯೋದಯ",
+        sunset: "ಸೂರ್ಯಾಸ್ತ",
+      },
+      sample: {
+        date: "30-01-2022",
+        weekday: "ಭಾನುವಾರ",
+        samvatsara: "Plava Samvathsara",
+        ayana: "Uttarayana",
+        rithu: "Hemanta",
+        sauraMasa: "Makara",
+        chandraMasa: "Pushya",
+        paksha: "Krishna",
+        tithi: "Trayodashi",
+        nakshatra: "Purva Ashadha",
+        yoga: "Harshana",
+        karana: "Vanije",
+        tithiTime: "24.44",
+        nakshatraTime: "43.12",
+        sunrise: "6.58",
+        sunset: "6.29",
+      },
+    },
+    quiz: {
+      title: "ಪ್ರಶ್ನೋತ್ತರ",
+      subtitle: "ಪರಂಪರೆ ಪ್ರಶ್ನೋತ್ತರ (ಮಾದರಿ ಪ್ರಶ್ನೆಗಳು)",
+      answerLabel: "ಉತ್ತರ",
+      scoreTitle: "ನಿಮ್ಮ ಅಂಕಗಳು",
+      scoreText: "ನೀವು {{score}} / {{total}} ಅಂಕಗಳನ್ನು ಪಡೆದಿದ್ದೀರಿ",
+      retake: "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+      items: [
+        {
+          id: "q1",
+          question: "'ಪರಂಪರೆ' ಎಂದರೆ ಸಾಮಾನ್ಯವಾಗಿ ಏನು?",
+          options: [
+            "ಗುರುಗಳ ವಂಶಾವಳಿ ಅಥವಾ ಉತ್ತರಾಧಿಕಾರ",
+            "ದೈನಂದಿನ ಉತ್ಸವ ಆಚರಣೆ",
+            "ದೇವಾಲಯದ ವಾಸ್ತು ಶೈಲಿ",
+          ],
+          answer: "ಗುರುಗಳ ವಂಶಾವಳಿ ಅಥವಾ ಉತ್ತರಾಧಿಕಾರ",
+        },
+        {
+          id: "q2",
+          question: "ಮಠ ಪರಂಪರೆಯಲ್ಲಿ ಬೋಧನೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳನ್ನು ಸಾಮಾನ್ಯವಾಗಿ ಯಾರು ಸಂರಕ್ಷಿಸುತ್ತಾರೆ?",
+          options: [
+            "ಪೀಠಾಧಿಪತಿಗಳ ಉತ್ತರಾಧಿಕಾರ",
+            "ಸ್ಥಳೀಯ ವ್ಯಾಪಾರಿಗಳು",
+            "ಋತುಮಾನದ ಭೇಟಿ ನೀಡುವವರು",
+          ],
+          answer: "ಪೀಠಾಧಿಪತಿಗಳ ಉತ್ತರಾಧಿಕಾರ",
+        },
+        {
+          id: "q3",
+          question: "ಪರಂಪರೆ ದಾಖಲೆ ನಿರ್ವಹಿಸುವ ಪ್ರಮುಖ ಉದ್ದೇಶ ಏನು?",
+          options: [
+            "ಆಧ್ಯಾತ್ಮಿಕ ವಂಶಾವಳಿ ಮತ್ತು ಪರಂಪರೆಯನ್ನು ದಾಖಲಿಸುವುದು",
+            "ದೇವಾಲಯದ ಹಣಕಾಸನ್ನು ಮಾತ್ರ ಪಟ್ಟಿ ಮಾಡುವುದು",
+            "ಮಳೆಯ ಅಂಕಿಅಂಶಗಳನ್ನು ಗಮನಿಸುವುದು",
+          ],
+          answer: "ಆಧ್ಯಾತ್ಮಿಕ ವಂಶಾವಳಿ ಮತ್ತು ಪರಂಪರೆಯನ್ನು ದಾಖಲಿಸುವುದು",
+        },
+        {
+          id: "q4",
+          question: "ಪರಂಪರೆಯಲ್ಲಿ ಗುರುವಿನ ಪಾತ್ರವನ್ನು ಸೂಚಿಸುವ ಉತ್ತಮ ಪದ ಯಾವುದು?",
+          options: ["ಶಿಕ್ಷಕ", "ವಾಸ್ತುಶಿಲ್ಪಿ", "ರೈತ"],
+          answer: "ಶಿಕ್ಷಕ",
+        },
+        {
+          id: "q5",
+          question: "ಪರಂಪರೆ ದಾಖಲೆಗಳಲ್ಲಿ ಆರಾಧನೆಯ ದಿನಾಂಕಗಳನ್ನು ಏಕೆ ದಾಖಲಿಸಲಾಗುತ್ತದೆ?",
+          options: [
+            "ಪ್ರಮುಖ ವಾರ್ಷಿಕೋತ್ಸವಗಳನ್ನು ಗೌರವಿಸಲು",
+            "ನಿರ್ಮಾಣ ಕೆಲಸಗಳನ್ನು ಯೋಜಿಸಲು",
+            "ನಿರ್ವಹಣಾ ಕರ್ತವ್ಯಗಳನ್ನು ಹಂಚಿಕೆ ಮಾಡಲು",
+          ],
+          answer: "ಪ್ರಮುಖ ವಾರ್ಷಿಕೋತ್ಸವಗಳನ್ನು ಗೌರವಿಸಲು",
+        },
+        {
+          id: "q6",
+          question: "ಮಠ ಪರಂಪರೆಯಲ್ಲಿ 'ಪೀಠಾಧಿಪತಿ' ಎಂದರೆ ಯಾರನ್ನು ಸೂಚಿಸುತ್ತದೆ?",
+          options: [
+            "ಮಠದ ಮುಖ್ಯಸ್ಥ",
+            "ದೇವಾಲಯದ ಸಂಗೀತಗಾರ",
+            "ಗ್ರಾಮ ಪಂಚಾಯತ್ ಸದಸ್ಯ",
+          ],
+          answer: "ಮಠದ ಮುಖ್ಯಸ್ಥ",
+        },
+      ],
+    },
+    resources: {
+      title: "ಸಂಪನ್ಮೂಲಗಳು",
+      subtitle: "ಲಭ್ಯವಿರುವ ಪ್ರಕಟಣೆಗಳು ಮತ್ತು ಅಧ್ಯಯನ ಸಾಮಗ್ರಿಗಳ ಸಂಕ್ಷಿಪ್ತ ವಿವರ.",
+      accessTitle: "ಪ್ರವೇಶಿಸುವ ವಿಧಾನ",
+      accessBody:
+        "ಇತ್ತೀಚಿನ ಪ್ರಕಟಣೆಗಳ ಪಟ್ಟಿ ಮತ್ತು ಪ್ರವೇಶ ಸೂಚನೆಗಳಿಗೆ ದಯವಿಟ್ಟು ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      items: [
+        {
+          title: "ವಾರ್ಷಿಕ ಮತ್ತು ಋತುಮಾನ ಪ್ರಕಟಣೆಗಳು",
+          detail:
+            "ಕಾರ್ಯಕ್ರಮಗಳು, ಬೋಧನೆಗಳು ಮತ್ತು ವೇಳಾಪಟ್ಟಿಗಳನ್ನು ದಾಖಲಿಸುವ ಅವಧಿಕ ಮತ್ತು ಸ್ಮರಣಿಕೆ ಪ್ರಕಟಣೆಗಳು.",
+        },
+        {
+          title: "ಭಕ್ತಿ ಮತ್ತು ತತ್ತ್ವಶಾಸ್ತ್ರ ಗ್ರಂಥಗಳು",
+          detail:
+            "ಭಕ್ತರು ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ಆಯ್ದ ಲೇಖನಗಳು, ಟಿಪ್ಪಣಿಗಳು ಮತ್ತು ಅಧ್ಯಯನ ಸಾಮಗ್ರಿಗಳು.",
+        },
+        {
+          title: "ಕಾರ್ಯಕ್ರಮ ಮತ್ತು ಸೇವಾ ಮಾರ್ಗದರ್ಶಿಗಳು",
+          detail:
+            "ಸೇವಾ ಕ್ರಮಗಳು, ವಿಧಿಗಳು ಮತ್ತು ಭಾಗವಹಿಸುವ ವಿವರಗಳನ್ನು ವಿವರಿಸುವ ಪ್ರಾಯೋಗಿಕ ಸಂಪನ್ಮೂಲಗಳು.",
+        },
+      ],
+    },
+    sevaBooking: {
+      subtitle: "ಸೇವಾ ಬುಕಿಂಗ್ ವಿನಂತಿಗಳನ್ನು ಇಲ್ಲಿ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತದೆ.",
+      searchPlaceholder: "ಸೇವೆ ಹುಡುಕಿ...",
+      listening: "ಕೇಳಲಾಗುತ್ತಿದೆ…",
+      voiceError: "ಧ್ವನಿ ಗುರುತುಮಾಡುವಿಕೆ ವಿಫಲವಾಯಿತು",
+      voiceUnavailable: "ಧ್ವನಿ ಮಾಡ್ಯೂಲ್ ಲಭ್ಯವಿಲ್ಲ. ಅಪ್ ಅನ್ನು ಮರು ನಿರ್ಮಿಸಿ.",
+      voiceStartFailed: "ಧ್ವನಿ ಇನ್‌ಪುಟ್ ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
+      currentStatusTitle: "ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ",
+      currentStatusBody: "ಸೇವಾ ಲಭ್ಯತೆ ಮತ್ತು ಸಮಯವನ್ನು ದೃಢೀಕರಿಸಲು ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      selectSevaTitle: "ಸೇವೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+      noSevasFound: "ನಿಮ್ಮ ಹುಡುಕಿಕೆಗೆ ಸೇವೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ.",
+      requestButton: "ಸೇವಾ ಬುಕಿಂಗ್ ವಿನಂತಿ",
+      sevaList: [
+        { id: 1, name: "06/03/2026 - ಗುರುರಾಜರಿಗೆ ವಿಶೇಷ ಹಸ್ತೋದಕ ಸೇವೆ", price: 500 },
+        { id: 2, name: "04/03/2026 - ಕಲ್ಯಾಣೋತ್ಸವ ಸೇವೆ", price: 1000 },
+        { id: 3, name: "03/03/2026 - ರಥೋತ್ಸವ ಸೇವೆ", price: 1000 },
+        { id: 4, name: "02/03/2026 - ಭೂತರಾಜರ ದಂಡೆಬಲಿ ವಿಶೇಷ ಕಾಣಿಕೆ", price: 1000 },
+        { id: 5, name: "ಒಂದು ದಿನದ ಸಂಪೂರ್ಣ ಸೇವೆ (ಅನ್ನದಾನ ಸಹಿತ)", price: 5001 },
+        { id: 6, name: "ಮಹಾ ಸರ್ವಸೇವಾ (ರಾತ್ರಿ ವಿಶೇಷ ಭೂತರಾಜರ ಪೂಜಾ ಸಹಿತ)", price: 1500 },
+        { id: 7, name: "ತುಳಸಿ ಅರ್ಚನೆ (ಶ್ರೀ ತ್ರಿವಿಕ್ರಮ ದೇವರಿಗೆ)", price: 25 },
+        { id: 8, name: "ಪ್ರತ್ಯಕ್ಷ ಗೋದಾನ (ಉತ್ತಮ)", price: 25000 },
+        { id: 9, name: "ಪ್ರತೃಕ್ತ ಗೋದಾನ (ಮಧ್ಯಮ)", price: 15000 },
+        { id: 10, name: "ಗೋದಾನ ( ದಕ್ಷಿಣೆ ಹೊರತು)", price: 3000 },
+        { id: 11, name: "ನಂದಾದೀಪ ( ವರ್ಷ 1 ರ)", price: 1200 },
+        { id: 12, name: "ನಂದಾದೀಪ (ತಿಂಗಳ 1 ರ)", price: 100 },
+        { id: 13, name: "ಶ್ರೀ ಭೂತರಾಜರ ವಿಶೇಷ ರಾತ್ರಿ ಪೂಜಾ", price: 101 },
+        { id: 14, name: "ತುಲಾಭಾರ (ಸಾಮ್ಯ ರಹಿತ ಮತ್ತು ದಕ್ಷಿಣೆ ಪ್ರತ್ಯೇಕ)", price: 100 },
+        { id: 15, name: "ಕುಂಕುಮಾರ್ಚನೆ (ರಮಾ ದೇವಿಗೆ)", price: 10 },
+      ],
     },
   },
 };

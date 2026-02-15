@@ -15,9 +15,10 @@ import {
 import firestore, { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 import auth from "@react-native-firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useLanguage } from "../context/LanguageContext";
 import { t } from "../utils/translations";
+import { HOME_CACHE_KEYS, serializeTimestamp } from "../utils/cache";
 
 type NewsItem = {
   id: string;
@@ -25,7 +26,7 @@ type NewsItem = {
   summary?: string;
   imageUrl?: string;
   contentUrl?: string;
-  createdAt?: FirebaseFirestoreTypes.Timestamp;
+  createdAt?: FirebaseFirestoreTypes.Timestamp | number;
 };
 
 type Announcement = {
@@ -33,7 +34,7 @@ type Announcement = {
   text: string;
   imageUrl?: string;
   priority?: number;
-  createdAt?: FirebaseFirestoreTypes.Timestamp;
+  createdAt?: FirebaseFirestoreTypes.Timestamp | number;
   contentUrl?: string;
 };
 
@@ -55,6 +56,7 @@ const getProfileKeyForPhone = (phone?: string | null) => {
 };
 
 export default function HomeScreen() {
+  const navigation = useNavigation<any>();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [loading, setLoading] = useState(true);
@@ -66,6 +68,32 @@ export default function HomeScreen() {
   const carouselRef = useRef<FlatList<Announcement>>(null);
 
   useEffect(() => {
+    let active = true;
+    const loadCache = async () => {
+      try {
+        const entries = await AsyncStorage.multiGet([
+          HOME_CACHE_KEYS.news,
+          HOME_CACHE_KEYS.announcements,
+        ]);
+        if (!active) return;
+        const cachedNewsRaw = entries.find(([key]) => key === HOME_CACHE_KEYS.news)?.[1];
+        const cachedAnnouncementsRaw = entries.find(([key]) => key === HOME_CACHE_KEYS.announcements)?.[1];
+
+        if (cachedNewsRaw) {
+          const parsed = JSON.parse(cachedNewsRaw) as NewsItem[];
+          setNews(parsed);
+        }
+
+        if (cachedAnnouncementsRaw) {
+          const parsed = JSON.parse(cachedAnnouncementsRaw) as Announcement[];
+          setAnnouncements(parsed);
+        }
+      } catch (error) {
+        console.log("Home cache load error:", error);
+      }
+    };
+
+    loadCache();
     console.log('Fetching news from Firestore...');
     const unsubNews = firestore()
       .collection("news")
@@ -77,6 +105,15 @@ export default function HomeScreen() {
           const items = snap.docs.map((d) => ({ id: d.id, ...(d.data() as any) }));
           console.log('News items:', items);
           setNews(items);
+          AsyncStorage.setItem(
+            HOME_CACHE_KEYS.news,
+            JSON.stringify(
+              items.map((item) => ({
+                ...item,
+                createdAt: serializeTimestamp(item.createdAt),
+              }))
+            )
+          ).catch((error) => console.log("Home cache save error:", error));
         },
         (err) => console.log("news snapshot error", err)
       );
@@ -93,12 +130,22 @@ export default function HomeScreen() {
           const items = snap.docs.map((d) => ({ id: d.id, ...(d.data() as any) }));
           console.log('Announcement items:', items);
           setAnnouncements(items);
+          AsyncStorage.setItem(
+            HOME_CACHE_KEYS.announcements,
+            JSON.stringify(
+              items.map((item) => ({
+                ...item,
+                createdAt: serializeTimestamp(item.createdAt),
+              }))
+            )
+          ).catch((error) => console.log("Home cache save error:", error));
         },
         (err) => console.log("announcements snapshot error", err)
       );
 
     const t = setTimeout(() => setLoading(false), 400);
     return () => {
+      active = false;
       unsubNews();
       unsubAnnouncements();
       clearTimeout(t);
@@ -163,6 +210,7 @@ export default function HomeScreen() {
     []
   );
 
+
   if (loading) {
     return (
       <View style={styles.center}>
@@ -170,6 +218,12 @@ export default function HomeScreen() {
       </View>
     );
   }
+
+  const formatDate = (value?: FirebaseFirestoreTypes.Timestamp | number) => {
+    if (!value) return "";
+    if (typeof value === "number") return new Date(value).toLocaleDateString();
+    return new Date(value.toDate()).toLocaleDateString();
+  };
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 30 }}>
@@ -181,7 +235,7 @@ export default function HomeScreen() {
               <Image source={ASSETS.logo} style={styles.logo} resizeMode="contain" />
             ) : (
               <View style={styles.placeholder}>
-                <Text style={styles.placeholderText}>LOGO</Text>
+                <Text style={styles.placeholderText}>{t("home.logoPlaceholder", language)}</Text>
               </View>
             )}
           </View>
@@ -198,7 +252,7 @@ export default function HomeScreen() {
               <Image source={ASSETS.vishwothama} style={styles.swamijiImg} />
             ) : (
               <View style={[styles.placeholder, { height: 110 }]}>
-                <Text style={styles.placeholderText}>Sri Sri Vishwothama Theertha Swamiji</Text>
+                <Text style={styles.placeholderText}>{t("home.vishwothamaSwamiji", language)}</Text>
               </View>
             )}
             <Text style={styles.swamijiName}>{t('home.vishwothamaSwamiji', language)}</Text>
@@ -209,7 +263,7 @@ export default function HomeScreen() {
               <Image source={ASSETS.vishwavallabha} style={styles.swamijiImg} />
             ) : (
               <View style={[styles.placeholder, { height: 110 }]}>
-                <Text style={styles.placeholderText}>Sri Sri Vishwavallabha Theertha Swamiji</Text>
+                <Text style={styles.placeholderText}>{t("home.vishwavallabhaSwamiji", language)}</Text>
               </View>
             )}
             <Text style={styles.swamijiName}>{t('home.vishwavallabhaSwamiji', language)}</Text>
@@ -250,7 +304,7 @@ export default function HomeScreen() {
                 )}
                 {!!item.contentUrl && (
                   <TouchableOpacity onPress={() => openUrl(item.contentUrl)} style={styles.readMoreBtn}>
-                    <Text style={styles.readMoreText}>Read More</Text>
+                    <Text style={styles.readMoreText}>{t("common.readMore", language)}</Text>
                   </TouchableOpacity>
                 )}
               </View>
@@ -279,7 +333,7 @@ export default function HomeScreen() {
                     <Image source={{ uri: n.imageUrl }} style={styles.newsImg} />
                   ) : (
                     <View style={[styles.placeholder, styles.newsImg]}>
-                      <Text style={styles.placeholderText}>NEWS IMAGE</Text>
+                      <Text style={styles.placeholderText}>{t("home.newsImagePlaceholder", language)}</Text>
                     </View>
                   )}
                   <View style={styles.newsTextBox}>
@@ -288,7 +342,7 @@ export default function HomeScreen() {
                     </Text>
                     {!!n.createdAt && (
                       <Text style={styles.newsDate}>
-                        {new Date(n.createdAt.toDate()).toLocaleDateString()}
+                        {formatDate(n.createdAt)}
                       </Text>
                     )}
                     {!!n.summary && (
@@ -300,7 +354,7 @@ export default function HomeScreen() {
                 </TouchableOpacity>
                 {!!n.contentUrl && (
                   <TouchableOpacity onPress={() => openUrl(n.contentUrl)} style={styles.newsReadMoreBtn}>
-                    <Text style={styles.readMoreText}>Read More</Text>
+                    <Text style={styles.readMoreText}>{t("common.readMore", language)}</Text>
                   </TouchableOpacity>
                 )}
               </View>
@@ -355,6 +409,13 @@ export default function HomeScreen() {
 			</TouchableOpacity>
 		</View>
 
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>{t("contact.title", language)}</Text>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Contact Us")}>
+          <Text style={styles.btnText}>{t("common.openContactPage", language)}</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

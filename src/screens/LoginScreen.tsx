@@ -33,11 +33,6 @@ type FormValues = {
   phone: string;
 };
 
-const schema = yup.object({
-  countryCode: yup.string().required(),
-  phone: yup.string().required("Mobile number is required"),
-});
-
 const CELL_COUNT = 6;
 
 export default function LoginScreen() {
@@ -59,12 +54,21 @@ export default function LoginScreen() {
 
   const [docModal, setDocModal] = useState<{
     visible: boolean;
-    title: "Privacy Policy" | "Terms & Conditions" | null;
-  }>({ visible: false, title: null });
+    titleKey: "login.privacyPolicy" | "login.termsConditions" | null;
+  }>({ visible: false, titleKey: null });
 
   const [countryPickerVisible, setCountryPickerVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { language, setLanguage } = useLanguage();
+
+  const schema = useMemo(
+    () =>
+      yup.object({
+        countryCode: yup.string().required(),
+        phone: yup.string().required(t("login.mobileRequired", language)),
+      }),
+    [language]
+  );
 
   const {
     control,
@@ -108,12 +112,12 @@ export default function LoginScreen() {
     if (can) Linking.openURL(url);
   };
 
-  const openDoc = (title: "Privacy Policy" | "Terms & Conditions") => {
-    setDocModal({ visible: true, title });
+  const openDoc = (titleKey: "login.privacyPolicy" | "login.termsConditions") => {
+    setDocModal({ visible: true, titleKey });
   };
 
   const closeDoc = () => {
-    setDocModal({ visible: false, title: null });
+    setDocModal({ visible: false, titleKey: null });
   };
 
   const sendOtp = async (values: FormValues, skipConsent = false) => {
@@ -156,7 +160,7 @@ export default function LoginScreen() {
       console.error('OTP send error:', err);
       console.error('Error message:', err?.message);
       console.error('Error code:', err?.code);
-      Alert.alert(t('login.failedToSendOTP', language), err?.message ?? "Unknown error");
+      Alert.alert(t('login.failedToSendOTP', language), err?.message ?? t("common.unknownError", language));
     } finally {
       console.log('Finally block - setting isSendingOtp to false');
       setIsSendingOtp(false);
@@ -176,7 +180,7 @@ export default function LoginScreen() {
       await confirm.confirm(otp);
       // Signed in. Auth gate switches to app flow.
     } catch (err: any) {
-      Alert.alert(t('login.otpVerificationFailed', language), err?.message ?? "Unknown error");
+      Alert.alert(t('login.otpVerificationFailed', language), err?.message ?? t("common.unknownError", language));
     } finally {
       setIsVerifying(false);
     }
@@ -203,13 +207,17 @@ export default function LoginScreen() {
           style={[styles.langBtn, language === "en" && styles.langBtnActive]}
           onPress={() => setLanguage("en")}
         >
-          <Text style={[styles.langText, language === "en" && styles.langTextActive]}>English</Text>
+          <Text style={[styles.langText, language === "en" && styles.langTextActive]}>
+            {t("common.languageEnglish", language)}
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.langBtn, language === "kn" && styles.langBtnActive]}
           onPress={() => setLanguage("kn")}
         >
-          <Text style={[styles.langText, language === "kn" && styles.langTextActive]}>ಕನ್ನಡ</Text>
+          <Text style={[styles.langText, language === "kn" && styles.langTextActive]}>
+            {t("common.languageKannada", language)}
+          </Text>
         </TouchableOpacity>
       </View>
 
@@ -275,13 +283,13 @@ export default function LoginScreen() {
 
             <Text style={styles.consentText}>
               {t('login.consent', language)}{" "}
-              <Text style={styles.link} onPress={() => openDoc("Privacy Policy")}>
+              <Text style={styles.link} onPress={() => openDoc("login.privacyPolicy")}>
                 {t('login.privacyPolicy', language)}
               </Text>{" "}
               {t('login.and', language)}{" "}
               <Text
                 style={styles.link}
-                onPress={() => openDoc("Terms & Conditions")}
+                onPress={() => openDoc("login.termsConditions")}
               >
                 {t('login.termsConditions', language)}
               </Text>
@@ -303,15 +311,14 @@ export default function LoginScreen() {
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>{t('login.copyright', language)}</Text>
-            <TouchableOpacity onPress={() => openUrl("https://www.sodematha.in/contact-us.html")}>
-              <Text style={styles.footerLink}>{t('login.contactUs', language)}</Text>
-            </TouchableOpacity>
           </View>
         </>
       ) : (
         <>
           <Text style={styles.subtitle}>{t('login.enterOTP', language)}</Text>
-          <Text style={styles.helper}>{t('login.sentTo', language, { phone: e164Phone || 'your number' })}</Text>
+          <Text style={styles.helper}>
+            {t('login.sentTo', language, { phone: e164Phone || t("login.yourNumber", language) })}
+          </Text>
 
           <CodeField
             value={otp}
@@ -376,16 +383,21 @@ export default function LoginScreen() {
         onRequestClose={closeDoc}
       >
         <View style={styles.modalContainer}>
-          <Text style={styles.modalTitle}>{docModal.title}</Text>
+          <Text style={styles.modalTitle}>
+            {docModal.titleKey ? t(docModal.titleKey, language) : ""}
+          </Text>
           <ScrollView style={styles.modalBody}>
             <Text style={styles.modalText}>
-              TODO: Paste {docModal.title} content here OR render via WebView/remote URL.
-              {"\n\n"}Tip: Host these documents on a site and show them inside an in-app WebView.
+              {t("login.policyPlaceholder", language, {
+                title: docModal.titleKey ? t(docModal.titleKey, language) : "",
+              })}
+              {"\n\n"}
+              {t("login.policyTip", language)}
             </Text>
           </ScrollView>
 
           <TouchableOpacity style={styles.modalCloseBtn} onPress={closeDoc}>
-            <Text style={styles.modalCloseText}>Close</Text>
+            <Text style={styles.modalCloseText}>{t("common.close", language)}</Text>
           </TouchableOpacity>
         </View>
       </Modal>

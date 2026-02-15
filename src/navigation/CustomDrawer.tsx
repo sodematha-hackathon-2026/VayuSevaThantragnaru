@@ -7,11 +7,14 @@ import SevaBookingScreen from "../screens/SevaBookingScreen";
 import RoomBookingScreen from "../screens/RoomBookingScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import PanchangaScreen from "../screens/PanchangaScreen";
+import { useLanguage } from "../context/LanguageContext";
+import { t } from "../utils/translations";
 
 const Stack = createStackNavigator();
 
 function MenuButton({ navigation }: any) {
   const [visible, setVisible] = useState(false);
+  const { language } = useLanguage();
 
   const navigate = (screen: string) => {
     setVisible(false);
@@ -29,23 +32,23 @@ function MenuButton({ navigation }: any) {
           <View style={styles.menu}>
             <TouchableOpacity style={styles.item} onPress={() => navigate("HomePage")}>
               <Icon name="home" size={20} color="#111" />
-              <Text style={styles.itemText}>Home</Text>
+              <Text style={styles.itemText}>{t("tabs.home", language)}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.item} onPress={() => navigate("Seva Booking")}>
               <Icon name="calendar" size={20} color="#111" />
-              <Text style={styles.itemText}>Seva Booking</Text>
+              <Text style={styles.itemText}>{t("tabs.sevaBooking", language)}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.item} onPress={() => navigate("Room Booking")}>
               <Icon name="bed" size={20} color="#111" />
-              <Text style={styles.itemText}>Room Booking</Text>
+              <Text style={styles.itemText}>{t("tabs.roomBooking", language)}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.item} onPress={() => navigate("Panchanga")}>
               <Icon name="book" size={20} color="#111" />
-              <Text style={styles.itemText}>Panchanga</Text>
+              <Text style={styles.itemText}>{t("tabs.panchanga", language)}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.item} onPress={() => navigate("Profile")}>
               <Icon name="user" size={20} color="#111" />
-              <Text style={styles.itemText}>Profile</Text>
+              <Text style={styles.itemText}>{t("tabs.profile", language)}</Text>
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
@@ -55,13 +58,15 @@ function MenuButton({ navigation }: any) {
 }
 
 export default function CustomDrawer() {
+  const { language } = useLanguage();
+
   return (
     <Stack.Navigator
       screenOptions={({ navigation }) => ({
         headerRight: () => <MenuButton navigation={navigation} />,
       })}
     >
-      <Stack.Screen name="HomePage" component={HomeScreen} options={{ title: "Home" }} />
+      <Stack.Screen name="HomePage" component={HomeScreen} options={{ title: t("tabs.home", language) }} />
       <Stack.Screen name="Seva Booking" component={SevaBookingScreen} />
       <Stack.Screen name="Room Booking" component={RoomBookingScreen} />
       <Stack.Screen name="Panchanga" component={PanchangaScreen} />

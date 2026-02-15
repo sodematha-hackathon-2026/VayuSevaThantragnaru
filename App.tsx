@@ -22,12 +22,13 @@ export default function App() {
           </NavigationContainer>
         </View>
         {showWatermark ? (
-          <Image
-            source={require("./assets/logo.png")}
-            style={styles.watermark}
-            resizeMode="contain"
-            pointerEvents="none"
-          />
+          <View pointerEvents="none" style={styles.watermarkContainer}>
+            <Image
+              source={require("./assets/logo.png")}
+              style={styles.watermark}
+              resizeMode="contain"
+            />
+          </View>
         ) : null}
       </View>
     </LanguageProvider>
@@ -37,14 +38,15 @@ export default function App() {
 const styles = StyleSheet.create({
   appContainer: { flex: 1, backgroundColor: "#fff" },
   navContainer: { flex: 1, zIndex: 1 },
+  watermarkContainer: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 2,
+  },
   watermark: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
     width: 280,
     height: 280,
     opacity: 0.1,
-    zIndex: 2,
-    transform: [{ translateX: -140 }, { translateY: -140 }],
   },
 });

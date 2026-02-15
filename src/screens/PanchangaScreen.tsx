@@ -1,32 +1,17 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useLanguage } from "../context/LanguageContext";
+import { t, translations } from "../utils/translations";
 
 export default function PanchangaScreen() {
-  const data = {
-    date: "30-01-2022",
-    weekday: "Sunday",
-    samvatsara: "Plava Samvathsara",
-    ayana: "Uttarayana",
-    rithu: "Hemanta",
-    sauraMasa: "Makara",
-    chandraMasa: "Pushya",
-    paksha: "Krishna",
-    tithi: "Trayodashi",
-    nakshatra: "Purva Ashadha",
-    yoga: "Harshana",
-    karana: "Vanije",
-    tithiTime: "24.44",
-    nakshatraTime: "43.12",
-    sunrise: "6.58",
-    sunset: "6.29",
-  };
+  const { language } = useLanguage();
+  const data = translations[language].panchanga.sample;
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <View style={styles.topBar}>
-        <Text style={styles.topIcon}>≡</Text>
-        <Text style={styles.topTitle}>Today's Panchanga</Text>
-        <Text style={styles.topIcon}>☀</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>{t("panchanga.title", language)}</Text>
+        <Text style={styles.subtitle}>{t("panchanga.subtitle", language)}</Text>
       </View>
 
       <View style={styles.headerBlock}>
@@ -36,7 +21,7 @@ export default function PanchangaScreen() {
 
       <View style={styles.cardRowSingle}>
         <View style={styles.cardWide}>
-          <Text style={styles.cardLabel}>Samvatsara</Text>
+          <Text style={styles.cardLabel}>{t("panchanga.labels.samvatsara", language)}</Text>
           <Text style={styles.cardValue}>{data.samvatsara}</Text>
         </View>
       </View>
@@ -52,11 +37,11 @@ export default function PanchangaScreen() {
         </View>
         <View style={styles.stackCol}>
           <View style={styles.cardSmall}>
-            <Text style={styles.cardLabel}>Ayana</Text>
+            <Text style={styles.cardLabel}>{t("panchanga.labels.ayana", language)}</Text>
             <Text style={styles.cardValue}>{data.ayana}</Text>
           </View>
           <View style={styles.cardSmall}>
-            <Text style={styles.cardLabel}>Rithu</Text>
+            <Text style={styles.cardLabel}>{t("panchanga.labels.rithu", language)}</Text>
             <Text style={styles.cardValue}>{data.rithu}</Text>
           </View>
         </View>
@@ -64,15 +49,15 @@ export default function PanchangaScreen() {
 
       <View style={styles.tripleRow}>
         <View style={styles.cardSmall}>
-          <Text style={styles.cardLabel}>SauraMasa</Text>
+          <Text style={styles.cardLabel}>{t("panchanga.labels.sauraMasa", language)}</Text>
           <Text style={styles.cardValue}>{data.sauraMasa}</Text>
         </View>
         <View style={styles.cardSmall}>
-          <Text style={styles.cardLabel}>ChandraMasa</Text>
+          <Text style={styles.cardLabel}>{t("panchanga.labels.chandraMasa", language)}</Text>
           <Text style={styles.cardValue}>{data.chandraMasa}</Text>
         </View>
         <View style={styles.cardSmall}>
-          <Text style={styles.cardLabel}>Paksha</Text>
+          <Text style={styles.cardLabel}>{t("panchanga.labels.paksha", language)}</Text>
           <Text style={styles.cardValue}>{data.paksha}</Text>
         </View>
       </View>
@@ -80,12 +65,12 @@ export default function PanchangaScreen() {
       <View style={styles.cardWide}>
         <View style={styles.twoCol}>
           <View style={styles.metricCol}>
-            <Text style={styles.cardLabel}>Tithi</Text>
+            <Text style={styles.cardLabel}>{t("panchanga.labels.tithi", language)}</Text>
             <Text style={styles.cardValue}>{data.tithi}</Text>
             <Text style={styles.metricTime}>{data.tithiTime}</Text>
           </View>
           <View style={styles.metricCol}>
-            <Text style={styles.cardLabel}>Nakshatra</Text>
+            <Text style={styles.cardLabel}>{t("panchanga.labels.nakshatra", language)}</Text>
             <Text style={styles.cardValue}>{data.nakshatra}</Text>
             <Text style={styles.metricTime}>{data.nakshatraTime}</Text>
           </View>
@@ -93,19 +78,23 @@ export default function PanchangaScreen() {
 
         <View style={styles.twoCol}>
           <View style={styles.metricCol}>
-            <Text style={styles.cardLabel}>Yoga</Text>
+            <Text style={styles.cardLabel}>{t("panchanga.labels.yoga", language)}</Text>
             <Text style={styles.cardValue}>{data.yoga}</Text>
           </View>
           <View style={styles.metricCol}>
-            <Text style={styles.cardLabel}>Karana</Text>
+            <Text style={styles.cardLabel}>{t("panchanga.labels.karana", language)}</Text>
             <Text style={styles.cardValue}>{data.karana}</Text>
           </View>
         </View>
       </View>
 
       <View style={styles.sunRow}>
-        <Text style={styles.sunText}>Sunrise - {data.sunrise}</Text>
-        <Text style={styles.sunText}>Sunset - {data.sunset}</Text>
+        <Text style={styles.sunText}>
+          {t("panchanga.labels.sunrise", language)} - {data.sunrise}
+        </Text>
+        <Text style={styles.sunText}>
+          {t("panchanga.labels.sunset", language)} - {data.sunset}
+        </Text>
       </View>
     </ScrollView>
   );
@@ -114,16 +103,9 @@ export default function PanchangaScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#F5E3CE" },
   content: { paddingBottom: 30 },
-  topBar: {
-    backgroundColor: "#9C6F4F",
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  topTitle: { color: "#fff", fontWeight: "800", fontSize: 16 },
-  topIcon: { color: "#fff", fontSize: 18, fontWeight: "700" },
+  header: { padding: 20, paddingBottom: 6 },
+  title: { fontSize: 22, fontWeight: "800", color: "#3B2416" },
+  subtitle: { fontSize: 13, color: "#7A5A45", marginTop: 4 },
   headerBlock: { alignItems: "center", paddingVertical: 14 },
   dateText: { fontSize: 26, fontWeight: "800", color: "#8A5E3D" },
   weekdayText: { fontSize: 14, fontWeight: "700", color: "#3B2416", marginTop: 4 },

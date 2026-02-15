@@ -1,0 +1,295 @@
+Sode Sri Vadiraja Matha
+Mobile App Requirements Document
+1.0 Executive Summary
+This document details the requirements for a cross-platform mobile app promoting Sode Sri Vadiraja
+Matha, Udupi. It incorporates all specified sections, admin controls, data consent, and voice search,
+prioritizing devotee engagement across the country.
+2.0 App Overview
+Target Android/iOS users with bilingual (English/Kannada) interface, offline capabilities, and bottom-tab
+navigation. Integrate Firebase for backend, Google Maps/ML Kit for locations/voice, and Razorpay/UPI for
+payments. Goals: Spiritual access, bookings, and community building.
+3.0 User Features
+14 navigable sections with search bar supporting voice control via device mic / keyboard.
+3.1 Login Page
+● All app users to login using their mobile number via OTP. While logging in, they should
+have access to read Privacy Policy, Terms & Conditions and provide confirmation before
+logging in.
+3.2 Home Page
+● Logo of the matha, photos of Sri Sri Vishwothama Theertha Swamiji and Sri Sri
+Vishwavallabha Theertha Swamiji
+● Top 5 news articles in form of tiles. Content for these tiles and its related image (to be
+displayed on the tile), will be uploaded by the admin.
+● Flash updates for announcements and festival alerts (ex aaradhane, utsava) on a
+Carousel bar – which will be updated by the admin.
+● Darshana and Prasada timings in Sode
+Location Darshan Prasada
+Sode 5:00 a.m. to 8:30 a.m. Noon 11:30 a.m.
+SAMPLE
+Location Darshan Prasada
+5:00 p.m. to 7:30 p.m. Evening 7:30 p.m.
+● Social Media links (@sodematha on Instagram / Facebook / YouTube / WhatsApp
+Channel).
+3.3 History and Parampara
+● History of the Sri Matha
+Please take the content from https://www.sodematha.in/index.html
+● Detailed information on Sri Madhwacharya and all the peetadhipathi’s of Sode Sri
+Vadiraja matha, starting from Sri Vishnu Teertharu
+o Arrange all the gurus in the order of their peetarohana and each one should be
+displayed as tile. On clicking each tile, it should take to the details of the guru,
+which is listed in the next section.
+o For each guru in the parampara, list the following
+▪ Ashrama Guru (link to the previous peetadhipathi)
+▪ Ashrama Shishya (link to the next peetadhipathi)
+▪ Photo of the peetadhipathi
+▪ Timelines of peetha (from – to year)
+▪ A text section detailing about the peetadhipathi
+▪ Poorvashrama Name
+▪ Aaradhane (ex. Magha Shudha Navami)
+▪ Key works delivered
+▪ Location of Vrindavana, shown on Google Map
+▪ Address of Vrindavana
+● Detailed information on Sri Bhootarajaru
+▪ Photo
+▪ A text section detailing about Sri Bhootarajaru
+3.4 Event Calendar
+● Dynamic Panchanga-integrated view (Weekday and Tithi information) ; filters,
+notifications for Aradhana/Paryaya or any other event across the country. Admin should
+be able to update and publish these events on real time basis.
+3.5 Gallery
+● Event albums (photos/videos); organized by albums . Admin should be able to add these
+content and publish on real time basis.
+3.6 Artefacts
+● Matha publications (text files / pdf / audio files); search (voice / keyboard), categories
+(Pravachana, Reference Materials / Publications / Etc).
+3.7 Room Booking Form
+● Sode-specific; date picker, consent checkbox ("Allow data storage?"), submission ref.
+Request to be sent as an email to office@sodematha.in.
+3.8 Sevas in Sode
+● List of Sevas (please refer to https://www.sodematha.in/online-seva.html). On selecting
+each, it should lead to the form to provide details of the sevakartha (as shown below),
+consent to store the data on the database for further communications. On submitting
+this form, it should lead to payment section.
+● If the user has registered and shared their details, pre-fill the form with information on
+the database, with an option for the user to edit if they want to change any information.
+● If you find the information has been changed (ex. Mobile, Address, Email), then ask if
+they want to update this information in the central database. Post confirmation update
+the user profile.
+● Provide a section for Cancellation & Refund Policy
+3.9 Sevas in Udupi Paryaya of Sode Sri Vadiraja Matha
+● Requirements are same as the previous section.
+● This section would be activated only during Paryaya and would be controlled by the
+admin
+3.10 Branch Dictionary
+● Google Maps pins, addresses, contacts; search/voice-enabled.
+● Please use the details available in https://www.sodematha.in/contact-us.html
+3.11 Youth Quiz
+● A section for quizzes on Siddhanta and matha related topics
+● Leaderboards, badges (users tracked based on mobile number). If they had given
+consent to store data, then their name would be displayed from the database.
+3.12 Tithinirnaya Panchanga
+● Integrate with the existing Sri Matha’s tithi nirnaya panchanga app (all the features
+currently available in the matha’s app)
+3.13 Devotee Registration and Profile Updates
+● Form for providing details (key information similar to what’s shown in the section for
+Seva.
+● email/mobile; checkboxes for (a) updates, (b) volunteer signup. Consent: "Consent to
+data storage for communications." Profile dashboard for unsubscribes.
+3.14 Admin Backend
+● Web/app-accessible dashboard (Firebase Auth, roles):
+o Enable/disable sections (hidden from users if off).
+o Content CRUD (announcements, media, timings).
+o Analytics: Daily/weekly/monthly sevas booked, amounts collected (charts via
+Firebase).
+o User data export (GDPR / Data privacy policy compliant).
+o Bulk notifications, volunteer approvals.
+3.15 Contact Us
+● Provide Sode and Udupi matha’s contact details, email address and mail address, along
+with google location map.
+4.0 Non-Functional Requirements
+● Security/Privacy: Explicit consent modals for forms; data minimization (name/email/mobile
+only); anonymized analytics.
+● Performance: <2s loads; offline Home/History/Darshan. Ability to support at least 1000 users at
+the same time.
+● Accessibility: VoiceOver support, high-contrast.
+● Tech: Flutter, Firebase (Firestore, Functions, Analytics), Speech-to-Text API.
+● Compliance: Indian DPDP Act for consents
+5.0 Details on Hackathon
+5.1 Scope / Features to be delivered
+● Features to be designed, developed and showcased as part of the hackathon
+o Login Page
+o Home Page
+o Devotee Registration and Profile Updates
+o Any one amongst the following
+▪ Event Calendar / Gallery / Artefacts / History & Parampara
+o Any one amongst the following
+▪ Room booking form / one of the seva’s / Quizzes
+o Any additional scope / features delivered apart from what have been mentioned
+above, will be considered as an additional advantage in scoring.
+● Framework to accommodate ability to update content / information via Admin (even
+though Admin feature need not be delivered during the hackathon)
+● Non-functional requirements should be tested for
+5.2 Key Deliverables
+Following artefacts have to be delivered as part of the final submission. Location for
+storage will be subsequently notified.
+● Wireframes (app structure and user flows)
+● UI/UX design
+● Source code
+● Functional App (executable file)
+● Backend integration (API documentation, database schema, etc.)
+5.3 Hackathon timelines
+● Access to our GIT library will be provided to the primary email ID by early Feb 2026. You
+should start uploading your artefacts to this library. Please name the folder with your
+team name.
+● The demo version should be ready by 14th Feb 2026. All artefacts have to be submitted /
+checked in to the respective location by 12:00 noon of 14th Feb 2026. We will disable
+access to the GIT library by this time.
+o If your artefacts are not checked in by this time, then your entry will not be
+considered for final presentation on the finale day.
+● Finale will be held in Bangalore on 15th Feb 2026 (location details to be shared close to
+the event, via WhatsApp group)
+● Winners will be announced online by 15th March 2026 and winners would be felicitated
+during the Bhavisameera Sri Vadiraja Vaibhavotsava, held at Sri Kshetra Hoovinakere
+between March 23 – 17, 2026.
+o Additional details will be shared with the winners in due course of time.
+5.4 Terms & Conditions
+Sode Sri Vadiraja Matha Hackathon Terms and Conditions outline participation rules, ensuring a
+fair and legally compliant event for developing a mobile app on Matha related information.
+● Eligibility
+Participants must be at least 18 years old and residents of India, capable of entering
+binding contracts under Indian law. Teams of 1-5 members are allowed, with all
+members meeting eligibility criteria. Individual or team registration requires agreeing to
+these terms via an online form.
+● Event Rules
+The hackathon runs for a fixed duration (Jan 31 - Feb 13), requiring original app
+development focused on Sode Sri Vadiraja Matha content (specifics will be shared with
+shortlisted participants). Participants supply their own devices, internet, and tools; preexisting
+code is permitted only if open-source licensed and disclosed. Submissions
+must be via GitHub or a designated platform by the deadline, judged on innovation,
+functionality, Matha relevance, and user experience.
+● Code of Conduct
+Participants agree to act respectfully, avoiding harassment, discrimination, or disruptive
+behaviour; violations lead to immediate disqualification. No plagiarism, cheating, or use
+of unauthorized third-party assets is allowed—all work must be original or properly
+licensed. Compliance with Indian laws, including data privacy under the DPDP Act 2023,
+is mandatory; organizers reserve the right to disqualify for any unethical conduct.
+● Intellectual Property Rights
+All submissions grant the organizers and Sode Sri Vadiraja Matha a perpetual,
+worldwide, royalty-free license to use, modify, distribute, and commercialize the app for
+non-profit or Matha-related purposes. The winning app will receive cash prize as
+anugraha prasada from Sode Sri Vadiraja Matha, and on acceptance of this, all IP
+rights—including source code, designs, and derivatives—transfer fully to the Matha,
+with participants waiving moral rights. Non-winning entries retain creator ownership but
+grant the above license; participants warrant no third-party IP infringement.
+● Prizes and Awards
+The winning app will receive cash prize as anugraha prasada from Sode Sri Vadiraja
+Matha, disbursed via bank transfer within 30 days of winner announcement, subject to
+KYC verification. No additional prizes are offered; organizers may award honourable
+mentions without cash. Winners must transfer all IP rights to Sode Sri Vadiraja Matha
+upon prize acceptance, including signing a formal assignment agreement.
+● Liability and Waivers
+Participants release organizers, Sode Sri Vadiraja Matha, and sponsors from liability for
+any claims, damages, or losses arising from participation, including app usage postevent.
+Organizers are not responsible for technical issues, data loss, or third-party
+claims. Participants indemnify organizers against IP infringement suits from their
+submissions.
+● Publicity Rights
+By participating, entrants grant organizers and the Matha rights to use their names,
+likenesses, and app details for promotional purposes without further compensation.
+Photos or videos taken during the event may be published on official channels.
+● Submission Requirements
+Apps must be functional mobile prototypes (Android/iOS), compatible with standard
+devices, and include a demo video under 3 minutes. Source code must be publicly
+accessible on GitHub post-submission. All external libraries or APIs must be listed with
+licenses; non-compliance results in disqualification.
+● Confidentiality
+Participants agree not to disclose proprietary Matha information shared during the
+event. Organizers treat submissions as non-confidential, except as required by law.
+5.5 Judging Criteria
+Apps are evaluated by a panel of Matha representatives and tech experts on four weighted
+criteria. Scores are averaged per team; ties are broken by the innovation score. Decisions are
+final and not subject to appeal.
+● Functionality and technical quality (40%)
+▪ Implementation of the scope
+▪ Attention to details
+▪ Quality of the design / UI
+▪ Quality of Code
+● Relevance to Sode Sri Vadiraja Matha content (30%)
+● Innovation and user experience (20%)
+▪ Additional wow factor, ease of use and innovative ideas will get an extra edge
+● Presentation quality (10%).
+6.0 Technology Stack
+o Mobile App (Android + iOS)
+§ Language & Framework : React Native (TypeScript)
+§ Key libraries
+• Navigation: @react-navigation/bottom-tabs
+• State: Redux Toolkit or Zustand
+• Offline: redux-persist + AsyncStorage
+• Forms: react-hook-form + yup
+• i18n: i18next (English + Kannada)
+• Accessibility: built-in RN a11y props
+• Charts: victory-native or react-native-svg-charts
+o Voice Search
+§ react-native-voice
+§ Uses device mic - Google Speech-to-Text (Android) / iOS Speech framework
+o Web Client (Public + Admin)
+§ Language & Framework :
+• React.js (TypeScript)
+§ Key libraries
+• UI: MUI or Ant Design
+• Charts: Recharts / Chart.js
+• Maps: Google Maps JS SDK
+• Forms: react-hook-form
+• Auth guard: role-based routing
+o Backend Layer (Core System)
+§ Language & Framework :
+• Java 21 + Spring Boot 4.0.2
+§ Modules
+• Auth Service (OTP)
+• Content Service (news, history, gallery)
+• Events & Panchanga
+• Seva & Booking
+• Payments
+• Notifications
+• Admin APIs
+o Database
+§ Primary DB: PostgreSQL/MySQL (MySQL acceptable, but PostgreSQL preferred)
+§ Search
+• OpenSearch / Elasticsearch
+• Artefacts search
+• Voice-to-text search
+• Publications
+o Authentication & Identity
+§ Login (OTP based) : Firebase Auth (Phone OTP)
+o Media & Content Delivery
+§ Storage
+§ AWS S3
+§ Images
+§ Videos
+§ PDFs
+§ Audio Pravachana
+• Voice, Maps & External Integrations
+o Voice Search
+o Google Speech-to-Text API
+o Device native fallback
+o Text normalization (Kannada/English)
+• Payments
+o Razorpay
+o UPI
+o Cards
+o NetBanking
+• Notifications
+o Push Notifications : Firebase Cloud Messaging (FCM)
+o Event alerts
+o Aradhana reminders
+o Paryaya activation
+o Admin broadcasts
+• Analytics & Monitoring
+o Firebase Analytics (anonymized)
+§ Custom DB metrics
+§ Sevas booked
+§ Amount collected
+§ Active users
+o Monitoring
+§ Spring Actuator
+§ AWS CloudWatch
+§ S3 access logs

@@ -10,6 +10,7 @@ import {
   View,
   Platform,
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
 import DateTimePicker, { DateTimePickerEvent } from "@react-native-community/datetimepicker";
@@ -168,13 +169,13 @@ export default function RoomBookingScreen() {
     }
 
     const body = `${t("roomBooking.emailBodyTitle", language)}\n\n` +
-      `Name: ${form.fullName}\n` +
-      `Mobile: ${form.mobile}\n` +
-      `Email: ${form.email}\n` +
-      `Check-in: ${form.checkIn}\n` +
-      `Check-out: ${form.checkOut}\n` +
-      `Guests: ${form.guests}\n` +
-      `Consent: ${form.consent ? "Yes" : "No"}`;
+      `${t("roomBooking.emailLabels.name", language)}: ${form.fullName}\n` +
+      `${t("roomBooking.emailLabels.mobile", language)}: ${form.mobile}\n` +
+      `${t("roomBooking.emailLabels.email", language)}: ${form.email}\n` +
+      `${t("roomBooking.emailLabels.checkIn", language)}: ${form.checkIn}\n` +
+      `${t("roomBooking.emailLabels.checkOut", language)}: ${form.checkOut}\n` +
+      `${t("roomBooking.emailLabels.guests", language)}: ${form.guests}\n` +
+      `${t("roomBooking.emailLabels.consent", language)}: ${form.consent ? t("common.yes", language) : t("common.no", language)}`;
 
     const mailto = `mailto:office@sodematha.in?subject=${encodeURIComponent(
       t("roomBooking.emailSubject", language)
@@ -222,31 +223,25 @@ export default function RoomBookingScreen() {
         <Text style={styles.label}>{t("roomBooking.checkIn", language)}</Text>
         <TouchableOpacity
           activeOpacity={0.8}
+          style={styles.dateInput}
           onPress={() => setActiveDateField("checkIn")}
         >
-          <View pointerEvents="none">
-            <TextInput
-              style={styles.input}
-              placeholder="YYYY-MM-DD"
-              value={form.checkIn}
-              editable={false}
-            />
-          </View>
+          <Text style={form.checkIn ? styles.inputText : styles.placeholderText}>
+            {form.checkIn || t("roomBooking.datePlaceholder", language)}
+          </Text>
+          <Icon name="calendar-outline" size={18} color="#7A5A45" />
         </TouchableOpacity>
 
         <Text style={styles.label}>{t("roomBooking.checkOut", language)}</Text>
         <TouchableOpacity
           activeOpacity={0.8}
+          style={styles.dateInput}
           onPress={() => setActiveDateField("checkOut")}
         >
-          <View pointerEvents="none">
-            <TextInput
-              style={styles.input}
-              placeholder="YYYY-MM-DD"
-              value={form.checkOut}
-              editable={false}
-            />
-          </View>
+          <Text style={form.checkOut ? styles.inputText : styles.placeholderText}>
+            {form.checkOut || t("roomBooking.datePlaceholder", language)}
+          </Text>
+          <Icon name="calendar-outline" size={18} color="#7A5A45" />
         </TouchableOpacity>
 
         <Text style={styles.label}>{t("roomBooking.guests", language)}</Text>
@@ -313,6 +308,30 @@ const styles = StyleSheet.create({
     marginTop: 6,
     color: "#3B2416",
     backgroundColor: "#FFF8F0",
+  },
+  dateInput: {
+    borderWidth: 1,
+    borderColor: "#D8B08C",
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    marginTop: 6,
+    backgroundColor: "#FFF8F0",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  inputText: {
+    color: "#3B2416",
+    fontSize: 14,
+    flex: 1,
+    marginRight: 8,
+  },
+  placeholderText: {
+    color: "#9B7A62",
+    fontSize: 14,
+    flex: 1,
+    marginRight: 8,
   },
   checkboxRow: {
     flexDirection: "row",

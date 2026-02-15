@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useLanguage } from "../context/LanguageContext";
-import { t } from "../utils/translations";
+import { t, translations } from "../utils/translations";
 
 type EventType = "Aradhana" | "Paryaya" | "Festival" | "Other";
 
@@ -25,45 +25,12 @@ type EventItem = {
   description?: string;
 };
 
-const EVENTS: EventItem[] = [
-  {
-    id: "1",
-    title: "Sample Aradhana",
-    date: "2026-02-20",
-    weekday: "Friday",
-    tithi: "Magha Shuddha Navami",
-    type: "Aradhana",
-    location: "Sode",
-    description: "Admin-managed content will replace this sample.",
-  },
-  {
-    id: "2",
-    title: "Sample Festival",
-    date: "2026-03-08",
-    weekday: "Sunday",
-    tithi: "Phalguna Shuddha Ekadashi",
-    type: "Festival",
-    location: "Udupi",
-  },
-  {
-    id: "3",
-    title: "Sample Paryaya Event",
-    date: "2026-04-15",
-    weekday: "Wednesday",
-    tithi: "Chaitra Krishna Ashtami",
-    type: "Paryaya",
-    location: "Udupi",
-  },
-  {
-    id: "4",
-    title: "Weekly Pravachana",
-    date: "2026-02-16",
-    weekday: "Monday",
-    tithi: "Magha Krishna Dwadashi",
-    type: "Other",
-    location: "Sode",
-  },
-];
+const typeLabelKey: Record<EventType, string> = {
+  Aradhana: "eventCalendar.filterAradhana",
+  Paryaya: "eventCalendar.filterParyaya",
+  Festival: "eventCalendar.filterFestival",
+  Other: "eventCalendar.filterOther",
+};
 
 const FILTERS: Array<{ key: "All" | EventType; labelKey: string }> = [
   { key: "All", labelKey: "eventCalendar.filterAll" },
@@ -78,10 +45,14 @@ export default function EventCalendarScreen() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<"All" | EventType>("All");
   const [notifyEnabled, setNotifyEnabled] = useState(false);
+  const events = useMemo<EventItem[]>(
+    () => translations[language].eventCalendar.events,
+    [language]
+  );
 
   const filteredEvents = useMemo(() => {
     const query = search.trim().toLowerCase();
-    return EVENTS.filter((event) => {
+    return events.filter((event) => {
       const matchesFilter = filter === "All" || event.type === filter;
       const matchesSearch =
         !query ||
@@ -90,7 +61,7 @@ export default function EventCalendarScreen() {
         event.location.toLowerCase().includes(query);
       return matchesFilter && matchesSearch;
     });
-  }, [filter, search]);
+  }, [events, filter, search]);
 
   return (
     <View style={styles.container}>
@@ -143,7 +114,7 @@ export default function EventCalendarScreen() {
             <View style={styles.cardHeader}>
               <Text style={styles.cardTitle}>{item.title}</Text>
               <View style={styles.typePill}>
-                <Text style={styles.typeText}>{item.type}</Text>
+                <Text style={styles.typeText}>{t(typeLabelKey[item.type], language)}</Text>
               </View>
             </View>
             <Text style={styles.cardMeta}>

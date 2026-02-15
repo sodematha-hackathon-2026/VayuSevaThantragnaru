@@ -140,7 +140,6 @@ SodeMathaApp/
   - @react-navigation/bottom-tabs: ^7.12.0
   - @react-navigation/native: ^7.1.28
   - @react-navigation/native-stack: ^7.12.0
-  - @react-navigation/drawer: ^7.8.0
 - **Firebase**: 23.8.6
   - @react-native-firebase/app
   - @react-native-firebase/auth
@@ -148,12 +147,8 @@ SodeMathaApp/
   - @react-native-firebase/storage
 - **React Native Vector Icons**: 10.3.0 (Ionicons)
 - **React Hook Form**: 7.71.1
-- **AsyncStorage**: ^2.2.0 (for language persistence)
+- **AsyncStorage**: ^2.1.0 (for language persistence)
 - **React Native Confirmation Code Field**: ^8.0.1 (OTP input)
-- **React Native Gesture Handler**: ^2.30.0
-- **React Native Reanimated**: ^4.2.1
-- **React Native Safe Area Context**: ^5.6.2
-- **React Native Screens**: ^4.23.0
 - **Yup**: ^1.7.1 (form validation)
 
 ## Features Implementation
